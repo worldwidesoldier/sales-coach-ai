@@ -1,0 +1,178 @@
+{
+  "id": "call_20251128_073424_dTfbW5qh",
+  "client_id": "dTfbW5qhIwBoY3XFAAAJ",
+  "start_time": "2025-11-28T07:34:24.208187",
+  "transcripts": [
+    {
+      "text": "Hello, ma'am.",
+      "speaker": "Unknown",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.92089844
+    },
+    {
+      "text": "Hello, my brother. What can you",
+      "speaker": "Unknown",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.98535156
+    },
+    {
+      "text": "Hello, my brother. I can't hear you. You may",
+      "speaker": "Unknown",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 0.98706055
+    },
+    {
+      "text": "Hello?",
+      "speaker": "Unknown",
+      "is_final": false,
+      "timestamp": 5.78,
+      "confidence": 0.954834
+    },
+    {
+      "text": "Hello. I'm calling you",
+      "speaker": "Unknown",
+      "is_final": false,
+      "timestamp": 5.78,
+      "confidence": 1.0
+    },
+    {
+      "text": "Hello. I'm calling you from",
+      "speaker": "Unknown",
+      "is_final": false,
+      "timestamp": 5.78,
+      "confidence": 1.0
+    },
+    {
+      "text": "Hello. I'm calling you from",
+      "speaker": "Unknown",
+      "is_final": true,
+      "timestamp": 5.78,
+      "confidence": 1.0
+    },
+    {
+      "text": "attorney",
+      "speaker": "Unknown",
+      "is_final": false,
+      "timestamp": 9.85,
+      "confidence": 0.9140625
+    },
+    {
+      "text": "attorneys.ai. How are you",
+      "speaker": "Unknown",
+      "is_final": false,
+      "timestamp": 9.85,
+      "confidence": 0.9536133
+    },
+    {
+      "text": "attorneys.ai. How are you doing today?",
+      "speaker": "Unknown",
+      "is_final": true,
+      "timestamp": 9.85,
+      "confidence": 1.0
+    },
+    {
+      "text": "I can't",
+      "speaker": "Unknown",
+      "is_final": false,
+      "timestamp": 16.16,
+      "confidence": 0.9448242
+    },
+    {
+      "text": "I can I can hear you",
+      "speaker": "Unknown",
+      "is_final": false,
+      "timestamp": 19.51,
+      "confidence": 0.9707031
+    },
+    {
+      "text": "I can I can hear you clearly?",
+      "speaker": "Unknown",
+      "is_final": true,
+      "timestamp": 19.51,
+      "confidence": 0.984375
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "Hi there! Can you hear me better now? I'm calling about helping your business handle phone calls automatically - is this a good time for a quick chat?",
+        "reasoning": "Address audio issue first, then deliver clear opening value proposition",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Confirm audio quality, then transition to permission-based opener"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Hi there! Can you hear me now? This is [Your Name] calling about helping your business handle phone calls more efficiently.",
+        "reasoning": "Address the connection issue first, then deliver a clear opening",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Once connection is clear, deliver full opening and ask permission to continue"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Hi there! Sorry about the connection - can you hear me clearly now? I'm calling from attorneys.ai to see if you have a quick minute to chat.",
+        "reasoning": "Address the audio issue immediately and restart the opening professionally",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Once connection is confirmed, deliver a clear value proposition opener"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Hi there! Yes, you can hear me clearly now. I'm calling from Attorneys.ai about our AI phone assistant that helps law firms never miss another client call. Do you have just 60 seconds?",
+        "reasoning": "Confirm audio is working, quickly restate company and value prop, ask for permission to continue",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "If they give permission, immediately ask a discovery question about their biggest phone challenge"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-11-28T07:35:38.595267"
+}

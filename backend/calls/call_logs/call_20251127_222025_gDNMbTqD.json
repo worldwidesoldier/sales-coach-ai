@@ -1,0 +1,91 @@
+{
+  "id": "call_20251127_222025_gDNMbTqD",
+  "client_id": "gDNMbTqD9D87-7JAAAAB",
+  "start_time": "2025-11-27T22:20:25.691202",
+  "transcripts": [
+    {
+      "text": "Hello. Hello.",
+      "speaker": "unknown",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.9157715
+    },
+    {
+      "text": "Hello. Hello, boss. Can you hear me? I'm talking",
+      "speaker": "unknown",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Hello. Hello, boss. Can you hear me? I'm talking in front",
+      "speaker": "unknown",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 1.0
+    },
+    {
+      "text": "Hello. Hello, boss. Can you hear me? I'm talking from",
+      "speaker": "unknown",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 1.0
+    },
+    {
+      "text": "eternity",
+      "speaker": "unknown",
+      "is_final": false,
+      "timestamp": 5.0,
+      "confidence": 0.70947266
+    },
+    {
+      "text": "attorney to",
+      "speaker": "unknown",
+      "is_final": true,
+      "timestamp": 5.0,
+      "confidence": 0.8588867
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "Hi there! Yes, I can hear you perfectly. This is [Your Name] calling about helping businesses handle their phone calls automatically. Do I have you at a good time for just 2 minutes?",
+        "reasoning": "Establish clear connection, introduce purpose quickly, and ask for permission to continue",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Get permission to continue, then quickly transition to discovery questions about their phone situation"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Hi there! Yes, I can hear you perfectly. I'm calling about helping law firms handle their phone calls more efficiently - do you have just 30 seconds?",
+        "reasoning": "Prospect seems confused about who's calling - clarify identity and get permission to continue",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Establish clear connection, confirm they can hear you, then deliver value proposition for law firms"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-11-27T22:20:47.556732"
+}
