@@ -4,7 +4,7 @@ import { Transcription, Suggestion, ConnectionStatus } from '@/types';
 
 interface UseWebSocketReturn {
   connectionStatus: ConnectionStatus;
-  startCall: () => void;
+  startCall: () => Promise<string>;
   endCall: () => void;
   sendAudio: (audioData: string) => void;
   onTranscription: (callback: (transcript: Transcription) => void) => void;
@@ -81,7 +81,33 @@ export const useWebSocket = (): UseWebSocketReturn => {
 
   const startCall = useCallback(() => {
     console.log('Starting call...');
-    socket.emit('start_call');
+    return new Promise<string>((resolve, reject) => {
+      // Set up one-time listener for call_started
+      const onCallStarted = (data: { session_id: string }) => {
+        console.log('✅ Call started event received:', data.session_id);
+        setSessionId(data.session_id);
+        resolve(data.session_id);
+      };
+
+      const onError = (error: { message: string }) => {
+        console.error('❌ Failed to start call:', error);
+        reject(new Error(error.message));
+      };
+
+      // Register temporary listeners
+      socket.once('call_started', onCallStarted);
+      socket.once('error', onError);
+
+      // Emit start_call event
+      socket.emit('start_call');
+
+      // Timeout after 5 seconds
+      setTimeout(() => {
+        socket.off('call_started', onCallStarted);
+        socket.off('error', onError);
+        reject(new Error('Timeout waiting for call to start'));
+      }, 5000);
+    });
   }, []);
 
   const endCall = useCallback(() => {

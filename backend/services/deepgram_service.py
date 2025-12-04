@@ -27,6 +27,7 @@ class DeepgramService:
         """
         self.api_key = api_key
         self.active_connections = {}
+        self.speaker_state = {}  # Track current speaker per session
 
         # Initialize Deepgram client
         config = DeepgramClientOptions(
@@ -35,6 +36,48 @@ class DeepgramService:
         self.deepgram = DeepgramClient(api_key, config)
 
         logger.info("✅ Deepgram service initialized")
+
+    def _identify_speaker(self, session_id, text, timestamp):
+        """
+        Simple turn-taking heuristics for speaker identification
+
+        Rules:
+        - First speaker = "Salesperson"
+        - Pause > 1.5s = switch to other speaker
+        - Alternate between "Salesperson" and "Customer"
+
+        Args:
+            session_id: Session ID
+            text: Transcript text
+            timestamp: Timestamp in seconds
+
+        Returns:
+            str: "Salesperson" or "Customer"
+        """
+        if session_id not in self.speaker_state:
+            # First utterance = Salesperson
+            self.speaker_state[session_id] = {
+                'current_speaker': 'Salesperson',
+                'last_timestamp': timestamp,
+                'switch_threshold': 1.5  # seconds
+            }
+            return 'Salesperson'
+
+        state = self.speaker_state[session_id]
+        time_since_last = timestamp - state['last_timestamp']
+
+        # Check if enough pause to switch speaker
+        if time_since_last > state['switch_threshold']:
+            # Switch speaker
+            if state['current_speaker'] == 'Salesperson':
+                state['current_speaker'] = 'Customer'
+            else:
+                state['current_speaker'] = 'Salesperson'
+
+        # Update timestamp
+        state['last_timestamp'] = timestamp
+
+        return state['current_speaker']
 
     def start_stream(self, session_id, on_transcript):
         """
@@ -49,10 +92,11 @@ class DeepgramService:
             dg_connection = self.deepgram.listen.live.v("1")
 
             # Configure transcription options
-            # Note: encoding and sample_rate removed to let Deepgram auto-detect from WebM stream
+            # Browser sends WebM container with Opus codec
             options = LiveOptions(
                 model="nova-2",
                 language="en-US",
+                encoding="opus",  # Opus codec (inside WebM container)
                 smart_format=True,
                 punctuate=True,
                 interim_results=True,
@@ -62,8 +106,10 @@ class DeepgramService:
                 diarize=True  # Speaker diarization
             )
 
-            # Event handlers
-            def on_message(self, result, **kwargs):
+            # Event handlers - capture service instance in closure
+            service = self  # Capture the DeepgramService instance
+
+            def on_message(dg_self, result, **kwargs):
                 try:
                     logger.info(f"📥 Deepgram on_message called for session {session_id}")
                     sentence = result.channel.alternatives[0].transcript
@@ -76,35 +122,25 @@ class DeepgramService:
                     # Determine if this is final
                     is_final = result.is_final
 
-                    # Get speaker (if diarization available)
-                    speaker = "unknown"
-                    if result.channel.alternatives[0].words:
-                        # Use first word's speaker
-                        speaker = getattr(
-                            result.channel.alternatives[0].words[0],
-                            'speaker',
-                            None
-                        ) or "unknown"
+                    # Get timestamp for speaker identification
+                    timestamp = result.start if hasattr(result, 'start') else 0
 
-                    # Format speaker name nicely
-                    if speaker != "unknown":
-                        speaker_label = f"Speaker {speaker}"
-                    else:
-                        speaker_label = "Unknown"
+                    # Use turn-taking heuristics to identify speaker
+                    speaker = service._identify_speaker(session_id, sentence, timestamp)
 
                     # Create transcript object
                     transcript = {
                         'text': sentence,
-                        'speaker': speaker_label,
+                        'speaker': speaker,  # Now returns "Salesperson" or "Customer"
                         'is_final': is_final,
-                        'timestamp': result.start if hasattr(result, 'start') else 0,
+                        'timestamp': timestamp,
                         'confidence': result.channel.alternatives[0].confidence if hasattr(result.channel.alternatives[0], 'confidence') else 0.9
                     }
 
                     if is_final:
-                        logger.info(f"✅ FINAL: [{speaker_label}] {sentence[:50]}...")
+                        logger.info(f"✅ FINAL: [{speaker}] {sentence[:50]}...")
                     else:
-                        logger.debug(f"⏳ Interim: [{speaker_label}] {sentence[:30]}...")
+                        logger.debug(f"⏳ Interim: [{speaker}] {sentence[:30]}...")
 
                     # Call the callback (send both interim and final)
                     on_transcript(transcript)
@@ -112,13 +148,13 @@ class DeepgramService:
                 except Exception as e:
                     logger.error(f"Error processing transcript: {e}", exc_info=True)
 
-            def on_error(self, error, **kwargs):
+            def on_error(dg_self, error, **kwargs):
                 logger.error(f"❌ Deepgram error for session {session_id}: {error}")
 
-            def on_open(self, *args, **kwargs):
+            def on_open(dg_self, *args, **kwargs):
                 logger.info(f"✅ Deepgram WebSocket OPENED for session: {session_id}")
 
-            def on_close(self, *args, **kwargs):
+            def on_close(dg_self, *args, **kwargs):
                 logger.info(f"Deepgram connection closed for session: {session_id}")
 
             # Register event handlers
@@ -194,6 +230,10 @@ class DeepgramService:
 
             # Remove from active connections
             del self.active_connections[session_id]
+
+            # Cleanup speaker state
+            if session_id in self.speaker_state:
+                del self.speaker_state[session_id]
 
             logger.info(f"✅ Deepgram stream stopped for session: {session_id}")
 

@@ -62,17 +62,29 @@ function App() {
   }, [audioLevel, setAudioLevel]);
 
   const handleStartCall = async () => {
-    // Start WebSocket call
-    wsStartCall();
+    try {
+      console.log('🚀 Starting call...');
 
-    // Start audio capture
-    const success = await startCapture((audioData) => {
-      // Send audio to backend
-      sendAudio(audioData);
-    });
+      // Start WebSocket call and WAIT for call_started event
+      const sessionId = await wsStartCall();
+      console.log(`✅ Session created: ${sessionId}`);
 
-    if (success) {
+      // Update local state
       stateStartCall();
+
+      // NOW start audio capture (session is ready!)
+      const success = await startCapture((audioData) => {
+        // Send audio to backend
+        sendAudio(audioData);
+      });
+
+      if (!success) {
+        console.error('❌ Failed to start audio capture');
+        handleEndCall();
+      }
+    } catch (error) {
+      console.error('❌ Failed to start call:', error);
+      alert(`Failed to start call: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   };
 

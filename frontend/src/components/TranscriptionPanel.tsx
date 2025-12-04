@@ -20,24 +20,27 @@ export const TranscriptionPanel = ({ transcriptions }: TranscriptionPanelProps) 
   }, [transcriptions]);
 
   const getSpeakerIcon = (speaker: string) => {
-    if (speaker.includes('customer') || speaker.includes('speaker_0')) {
+    const lowerSpeaker = speaker.toLowerCase();
+    if (lowerSpeaker.includes('customer') || lowerSpeaker.includes('speaker_0')) {
       return <UserCircle2 className="h-4 w-4" />;
     }
     return <User className="h-4 w-4" />;
   };
 
   const getSpeakerColor = (speaker: string) => {
-    if (speaker.includes('customer') || speaker.includes('speaker_0')) {
+    const lowerSpeaker = speaker.toLowerCase();
+    if (lowerSpeaker.includes('customer') || lowerSpeaker.includes('speaker_0')) {
       return 'text-blue-600 dark:text-blue-400';
     }
     return 'text-green-600 dark:text-green-400';
   };
 
   const getSpeakerLabel = (speaker: string) => {
-    if (speaker.includes('customer') || speaker.includes('speaker_0')) {
+    const lowerSpeaker = speaker.toLowerCase();
+    if (lowerSpeaker.includes('customer') || lowerSpeaker.includes('speaker_0')) {
       return 'Customer';
     }
-    if (speaker.includes('salesperson') || speaker.includes('speaker_1')) {
+    if (lowerSpeaker.includes('salesperson') || lowerSpeaker.includes('speaker_1')) {
       return 'You';
     }
     return 'Unknown';
