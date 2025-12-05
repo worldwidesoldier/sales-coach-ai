@@ -1,0 +1,202 @@
+{
+  "id": "call_20251205_091203_5_RAH9Xl",
+  "client_id": "5_RAH9XlfI2zAaeXAAAh",
+  "start_time": "2025-12-05T09:12:03.320406",
+  "transcripts": [
+    {
+      "text": "It's",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.79956055
+    },
+    {
+      "text": "And, sir, how are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.99658203
+    },
+    {
+      "text": "Hey, sir. How are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 0.9995117
+    },
+    {
+      "text": "I'm good. Have",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.21,
+      "confidence": 0.91259766
+    },
+    {
+      "text": "I'm good. How about yourself?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 2.21,
+      "confidence": 1.0
+    },
+    {
+      "text": "I'm calling you from",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 4.95,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I'm calling you from Itronics AI,",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 4.95,
+      "confidence": 0.9921875
+    },
+    {
+      "text": "I'm calling you from Eternix AI, and",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 4.95,
+      "confidence": 0.97314453
+    },
+    {
+      "text": "I'm calling you from Itronics AI, and",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 4.95,
+      "confidence": 0.984375
+    },
+    {
+      "text": "what I'm trying to",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 8.61,
+      "confidence": 1.0
+    },
+    {
+      "text": "what I'm trying to tell you is that I",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 8.61,
+      "confidence": 1.0
+    },
+    {
+      "text": "what I'm trying to tell you is that I have a proposition",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 8.61,
+      "confidence": 1.0
+    },
+    {
+      "text": "what I'm trying to tell you is that I have a proposition for you.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 8.61,
+      "confidence": 1.0
+    },
+    {
+      "text": "Total",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 51.98,
+      "confidence": 0.7241211
+    },
+    {
+      "text": "Okay?",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 56.89,
+      "confidence": 0.8347168
+    },
+    {
+      "text": "Okay?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 56.89,
+      "confidence": 0.80908203
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "Great! I'm calling because I help business owners like yourself stop missing calls when they're busy. Do you ever lose potential customers because you can't answer every call?",
+        "reasoning": "Move past pleasantries into value proposition with qualifying question",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Based on their response, either dive into discovery questions or handle initial pushback"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm doing great, thanks! Hey, I'm calling because I help business owners like yourself handle their phone calls better. Quick question - are you missing calls when you're busy with customers?",
+        "reasoning": "Move quickly from pleasantries to business purpose with a qualifying question",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Based on their response to the missed calls question, dive deeper into their phone handling challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm doing great, thanks! I'm calling because we help businesses like yours handle phone calls automatically - are you currently missing calls or spending too much time on repetitive questions?",
+        "reasoning": "Complete the interrupted intro with value proposition and qualifying question",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Based on their response, dive deeper into their specific phone handling challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Actually, I'd love to hear your proposition first! But real quick - are you the business owner? I called because I help businesses handle their phone calls automatically.",
+        "reasoning": "Acknowledge their interruption respectfully while redirecting to qualify and establish purpose",
+        "confidence": 87,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": true,
+        "objection_type": "not_interested",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "not_interested"
+      ],
+      "next_move": "Listen to their proposition briefly, then pivot back to qualifying their business needs"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-12-05T09:13:09.981008"
+}

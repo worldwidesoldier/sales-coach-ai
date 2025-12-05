@@ -75,10 +75,10 @@ const PrimaryCard = ({ suggestion }: { suggestion: CoachingSuggestion }) => {
 
   return (
     <Card className={`flex flex-col border-2 ${colors.border} ${colors.bg}`}>
-      <CardHeader className="pb-3">
-        <CardTitle className="text-lg flex items-center justify-between">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-base flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Zap className="h-5 w-5 text-yellow-500" />
+            <Zap className="h-4 w-4 text-yellow-500" />
             Primary Suggestion
           </div>
           <div className="flex items-center gap-2">
@@ -87,10 +87,10 @@ const PrimaryCard = ({ suggestion }: { suggestion: CoachingSuggestion }) => {
           </div>
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-3">
         {/* Main Suggestion */}
-        <div className={`p-4 rounded-lg border-2 ${colors.border} bg-white dark:bg-gray-900`}>
-          <p className="text-base font-semibold mb-2 text-foreground">
+        <div className={`p-3 rounded-lg border-2 ${colors.border} bg-white dark:bg-gray-900`}>
+          <p className="text-sm font-semibold mb-1 text-foreground">
             {primary_suggestion.text}
           </p>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
@@ -124,9 +124,9 @@ const PrimaryCard = ({ suggestion }: { suggestion: CoachingSuggestion }) => {
         </div>
 
         {/* Reasoning */}
-        <div className="pt-3 border-t border-border">
-          <p className="text-xs font-medium text-muted-foreground mb-2">Why this suggestion:</p>
-          <p className="text-sm text-foreground">
+        <div className="pt-2 border-t border-border">
+          <p className="text-xs font-medium text-muted-foreground mb-1">Why this suggestion:</p>
+          <p className="text-xs text-foreground">
             {primary_suggestion.reasoning}
           </p>
         </div>
@@ -168,7 +168,7 @@ export const PrimarySuggestionPanel = ({
   previousSuggestion,
 }: PrimarySuggestionPanelProps) => {
   return (
-    <div className="h-full flex flex-col gap-4 overflow-auto p-1">
+    <div className="flex flex-col gap-4 p-1">
       {/* PRIMARY SUGGESTION (Latest) */}
       <AnimatePresence mode="wait">
         {currentSuggestion ? (
