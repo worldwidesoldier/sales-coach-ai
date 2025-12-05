@@ -188,7 +188,7 @@ function App() {
               </div>
 
               {/* Right: Current Suggestion */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 h-full">
                 <PrimarySuggestionPanel
                   currentSuggestion={suggestions.length > 0 ? suggestions[suggestions.length - 1] : null}
                   previousSuggestion={suggestions.length > 1 ? suggestions[suggestions.length - 2] : null}

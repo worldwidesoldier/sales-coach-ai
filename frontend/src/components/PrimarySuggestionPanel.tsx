@@ -168,7 +168,7 @@ export const PrimarySuggestionPanel = ({
   previousSuggestion,
 }: PrimarySuggestionPanelProps) => {
   return (
-    <div className="flex flex-col gap-4 p-1">
+    <div className="h-full flex flex-col gap-4 overflow-auto p-1">
       {/* PRIMARY SUGGESTION (Latest) */}
       <AnimatePresence mode="wait">
         {currentSuggestion ? (
