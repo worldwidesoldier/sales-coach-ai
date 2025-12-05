@@ -1,0 +1,275 @@
+{
+  "id": "call_20251204_102356_T_OQHNxD",
+  "client_id": "T_OQHNxD_jixrfsJAAAN",
+  "start_time": "2025-12-04T10:23:56.542078",
+  "transcripts": [
+    {
+      "text": "Dash",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.66259766
+    },
+    {
+      "text": "Dashion, Luis.",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 0.7919922
+    },
+    {
+      "text": "Yo. Yo. Yo. How are you doing",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 1.73,
+      "confidence": 0.90722656
+    },
+    {
+      "text": "Yo. Yo. How are you doing, my man?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 1.73,
+      "confidence": 0.9741211
+    },
+    {
+      "text": "I'm good. How about you,",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 4.18,
+      "confidence": 1.0
+    },
+    {
+      "text": "I'm good. How about you, bro?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 4.18,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Oh, that's",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 6.67,
+      "confidence": 0.9975586
+    },
+    {
+      "text": "Oh, that's good to hear, bro.",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 6.67,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Oh, that's good to hear, bro.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 6.67,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I'm happy",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 10.4,
+      "confidence": 1.0
+    },
+    {
+      "text": "I'm happy I'm happy that you",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 10.4,
+      "confidence": 1.0
+    },
+    {
+      "text": "I'm happy I'm happy that you that you're doing that.",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 10.4,
+      "confidence": 1.0
+    },
+    {
+      "text": "I'm happy I'm happy that you that you're doing that. Like,",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 10.4,
+      "confidence": 1.0
+    },
+    {
+      "text": "I",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 13.88,
+      "confidence": 0.4951172
+    },
+    {
+      "text": "one",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 14.53,
+      "confidence": 0.8076172
+    },
+    {
+      "text": "one",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 14.53,
+      "confidence": 0.703125
+    },
+    {
+      "text": "one hundred.",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 14.53,
+      "confidence": 0.69433594
+    },
+    {
+      "text": "one hundred.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 14.53,
+      "confidence": 0.69873047
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "Hi Dashion! This is Luis calling about helping you never miss another customer call. Do you have 30 seconds?",
+        "reasoning": "Complete the opening with a clear value hook and time commitment request",
+        "confidence": 95,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Get permission to continue, then quickly identify their biggest phone challenge"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Hey, I'm doing great! Thanks for taking my call. I'm reaching out because I help businesses like yours never miss another customer call - got 30 seconds to see if this might help you?",
+        "reasoning": "Match his friendly energy and quickly transition to value proposition with permission-based approach",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Get permission to continue, then quickly identify if they have phone/customer service challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm doing great! Hey, I'm calling because I help businesses like yours never miss another customer call. Do you guys get a lot of calls during the day?",
+        "reasoning": "Move from rapport to business purpose with a discovery question",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Based on their response about call volume, dig into pain points around missed calls or phone management"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Good to connect! Hey, I'm calling because I help businesses like yours never miss another customer call. Quick question - are you losing any potential customers to missed calls right now?",
+        "reasoning": "Move from small talk to business purpose and immediate value discovery",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Transition from rapport to business problem identification"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Hey, I appreciate you taking my call! I'm reaching out because I help businesses like yours never miss another customer call. Are you currently losing calls when you're busy or after hours?",
+        "reasoning": "Need to transition from small talk to business purpose and identify pain points",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Get prospect talking about their phone/lead challenges to qualify need"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Thanks for taking my call! I'm reaching out because I help businesses like yours capture more leads with an AI phone assistant. Quick question - are you missing calls when you're busy with customers?",
+        "reasoning": "Transition from rapport to business purpose with a qualifying question",
+        "confidence": 87,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Get prospect talking about their phone/lead challenges to identify pain points"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Awesome! So Luis, I'm calling because I help businesses like yours never miss another customer call. Quick question - how many calls do you think you miss each week?",
+        "reasoning": "Transition from rapport to business purpose with discovery question",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Get him to admit pain point about missed calls, then qualify the impact"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-12-04T10:24:21.405736"
+}

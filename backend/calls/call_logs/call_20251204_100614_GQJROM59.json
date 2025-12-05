@@ -1,0 +1,86 @@
+{
+  "id": "call_20251204_100614_GQJROM59",
+  "client_id": "GQJROM59RkoVw6lBAAAH",
+  "start_time": "2025-12-04T10:06:14.989964",
+  "transcripts": [
+    {
+      "text": "You, my brother,",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.7944336
+    },
+    {
+      "text": "You, my brother, can you hear me?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.9980469
+    },
+    {
+      "text": "You're my brother. Can you hear me?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 0.9975586
+    },
+    {
+      "text": "Hello. I'm calling",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.45,
+      "confidence": 0.9941406
+    },
+    {
+      "text": "Hello. I'm calling you from attorney",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.45,
+      "confidence": 1.0
+    },
+    {
+      "text": "Hello. I'm calling you from attorney a I.",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.45,
+      "confidence": 1.0
+    },
+    {
+      "text": "Hello. I'm calling you from attorney a I.",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.45,
+      "confidence": 1.0
+    },
+    {
+      "text": "Hello. I'm calling you from attorney a I. How are you doing?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 2.45,
+      "confidence": 1.0
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "Hi, this is [Your Name] from [Company]. I'm calling about AI phone assistants that handle calls 24/7. Do you have 30 seconds for me to explain how this could help your business?",
+        "reasoning": "Need to start over with proper professional introduction and value proposition",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Establish professional credibility and get permission to continue the call"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-12-04T10:06:28.791421"
+}

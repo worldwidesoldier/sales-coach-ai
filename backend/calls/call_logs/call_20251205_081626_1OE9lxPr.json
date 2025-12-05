@@ -1,0 +1,260 @@
+{
+  "id": "call_20251205_081626_1OE9lxPr",
+  "client_id": "1OE9lxPrTsIUuhK8AAAT",
+  "start_time": "2025-12-05T08:16:26.545937",
+  "transcripts": [
+    {
+      "text": "Hello, sir.",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.92163086
+    },
+    {
+      "text": "Hello, sir. How are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 1.0
+    },
+    {
+      "text": "Hello, sir. How are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 1.0
+    },
+    {
+      "text": "I'm",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.17,
+      "confidence": 0.61206055
+    },
+    {
+      "text": "I'm feeling",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.17,
+      "confidence": 0.9951172
+    },
+    {
+      "text": "I'm feeling alright. How are you?",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.17,
+      "confidence": 0.9970703
+    },
+    {
+      "text": "I'm feeling alright. How are you?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 2.17,
+      "confidence": 0.9970703
+    },
+    {
+      "text": "I could",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 5.51,
+      "confidence": 0.9980469
+    },
+    {
+      "text": "I couldn't be better, bud.",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 5.51,
+      "confidence": 0.9941406
+    },
+    {
+      "text": "I couldn't be better, brother. So the following",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 5.51,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I couldn't be better, brother. So the following is the",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 5.51,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I couldn't be better, brother. So the following is the",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 5.51,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I'm calling you",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 9.55,
+      "confidence": 1.0
+    },
+    {
+      "text": "I'm calling you because of how",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 9.55,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I'm calling you because I help business owner like to",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 9.55,
+      "confidence": 0.9645996
+    },
+    {
+      "text": "I'm calling you because I help business owner like yourself handle",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 9.55,
+      "confidence": 0.9951172
+    },
+    {
+      "text": "I'm calling you because I help business owners like yourself handle",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 9.55,
+      "confidence": 0.9951172
+    },
+    {
+      "text": "more",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 13.92,
+      "confidence": 0.9970703
+    },
+    {
+      "text": "more calls without hard",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 13.92,
+      "confidence": 0.9873047
+    },
+    {
+      "text": "more calls without having extra staff for you.",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 13.92,
+      "confidence": 0.9941406
+    },
+    {
+      "text": "more calls without having extra staff. Are you the owner?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 13.92,
+      "confidence": 0.9980469
+    },
+    {
+      "text": "I changed per",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 47.75,
+      "confidence": 0.44921875
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "Great! I'm calling because I help business owners like yourself handle more calls without hiring extra staff. Are you the owner or decision maker there?",
+        "reasoning": "Move quickly past pleasantries to establish purpose and qualify decision maker",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Confirm decision maker status, then transition to pain point discovery"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm great, thanks! I'm calling because I help businesses like yours capture every lead that calls in. Quick question - do you ever worry about missing important calls when you're busy?",
+        "reasoning": "Move past pleasantries into value proposition with an engaging question",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Based on their response, transition into discovery questions about their phone challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Actually, let me start over - I'm calling because I help businesses like yours capture every single call that comes in. What kind of business are you running?",
+        "reasoning": "The salesperson started a generic pitch without establishing context or rapport first",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Get them talking about their business to identify pain points before any pitch"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Sorry, let me start over - I'm calling because I noticed your business might be missing calls. Do you currently have someone answering your phones 24/7?",
+        "reasoning": "The opening got jumbled, need to reset with a clear value-focused question",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Clean up the opening and get into discovery with phone coverage question"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Yes, I am the owner. What kind of business are you with exactly?",
+        "reasoning": "The salesperson jumbled their opening and needs to clarify their identity and value proposition clearly",
+        "confidence": 78,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Restart with clear company intro and permission-based opener"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-12-05T08:17:23.218162"
+}

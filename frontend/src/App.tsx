@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useWebSocket } from '@/hooks/useWebSocket';
 import { useAudioCapture } from '@/hooks/useAudioCapture';
 import { useCallState } from '@/hooks/useCallState';
@@ -7,6 +7,7 @@ import { CallControls } from '@/components/CallControls';
 import { TranscriptionPanel } from '@/components/TranscriptionPanel';
 import { PrimarySuggestionPanel } from '@/components/PrimarySuggestionPanel';
 import { BackupToolkit } from '@/components/BackupToolkit';
+import { Sun, Moon } from 'lucide-react';
 
 function App() {
   const {
@@ -39,6 +40,21 @@ function App() {
     setAudioLevel,
     toggleMute: stateToggleMute,
   } = useCallState();
+
+  // Dark mode theme
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    return (localStorage.getItem('theme') as 'light' | 'dark') || 'dark';
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  }, [theme]);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
 
   // Listen for transcriptions and suggestions
   useEffect(() => {
@@ -108,11 +124,20 @@ function App() {
     <div className="h-screen flex flex-col bg-background">
       {/* Header */}
       <header className="border-b">
-        <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold">Sales Coach AI</h1>
-          <p className="text-sm text-muted-foreground">
-            Real-time sales coaching assistant
-          </p>
+        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold">Sales Coach AI</h1>
+            <p className="text-sm text-muted-foreground">
+              Real-time sales coaching assistant
+            </p>
+          </div>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg hover:bg-accent transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+          </button>
         </div>
       </header>
 
@@ -125,11 +150,11 @@ function App() {
       />
 
       {/* Main Content */}
-      <main className="flex-1 overflow-hidden">
-        <div className="h-full container mx-auto px-4 py-6">
-          <div className="h-full flex flex-col gap-4">
-            {/* Top Section: Transcription + Primary Suggestion (70% height) */}
-            <div className="flex gap-4 min-h-0" style={{ flex: '0 0 65%' }}>
+      <main className="flex-1 overflow-auto">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-col gap-4">
+            {/* Top Section: Transcription + Primary Suggestion (75% height) */}
+            <div className="flex gap-4 min-h-0" style={{ flex: '0 0 75%' }}>
               {/* Left: Live Transcription */}
               <div className="flex-1 min-w-0">
                 <TranscriptionPanel transcriptions={transcriptions} />
@@ -138,13 +163,14 @@ function App() {
               {/* Right: Current Suggestion */}
               <div className="flex-1 min-w-0">
                 <PrimarySuggestionPanel
-                  suggestion={suggestions.length > 0 ? suggestions[suggestions.length - 1] : null}
+                  currentSuggestion={suggestions.length > 0 ? suggestions[suggestions.length - 1] : null}
+                  previousSuggestion={suggestions.length > 1 ? suggestions[suggestions.length - 2] : null}
                 />
               </div>
             </div>
 
-            {/* Bottom Section: Backup Toolkit (30% height) */}
-            <div className="overflow-auto" style={{ flex: '0 0 35%' }}>
+            {/* Bottom Section: Backup Toolkit (25% height) */}
+            <div style={{ flex: '0 0 25%' }}>
               <BackupToolkit
                 highlightedCategories={
                   suggestions.length > 0 && suggestions[suggestions.length - 1]?.highlight_toolkit
