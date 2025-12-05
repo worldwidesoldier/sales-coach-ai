@@ -1,0 +1,744 @@
+{
+  "id": "call_20251205_092921_t8QaMBJU",
+  "client_id": "t8QaMBJUE9Khn5ynAAAn",
+  "start_time": "2025-12-05T09:29:21.282044",
+  "transcripts": [
+    {
+      "text": "Hello, sir.",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.9980469
+    },
+    {
+      "text": "Hello, sir. How are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.9995117
+    },
+    {
+      "text": "Hello, sir. How are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I'm good.",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.13,
+      "confidence": 0.99609375
+    },
+    {
+      "text": "I'm good. How are you?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 2.13,
+      "confidence": 0.9995117
+    },
+    {
+      "text": "Great. I'm calling",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 6.1,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Great. I'm calling you from a t Turn",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 9.21,
+      "confidence": 0.99853516
+    },
+    {
+      "text": "Great. I'm calling you from attorney Eternix",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 9.21,
+      "confidence": 0.9995117
+    },
+    {
+      "text": "Great. I'm calling you from attorney eternix.ai.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 9.21,
+      "confidence": 0.9995117
+    },
+    {
+      "text": "Do you understand",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 12.76,
+      "confidence": 0.9770508
+    },
+    {
+      "text": "Do you understand how good at",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 12.76,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Do you understand how good that that that is?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 12.76,
+      "confidence": 0.99609375
+    },
+    {
+      "text": "Do you understand how good that that that is?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 12.76,
+      "confidence": 0.99658203
+    },
+    {
+      "text": "I",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 102.82,
+      "confidence": 0.9223633
+    },
+    {
+      "text": "Mean, they asked me to",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 107.27,
+      "confidence": 0.9831543
+    },
+    {
+      "text": "I mean, they asked me today, for sure.",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 107.27,
+      "confidence": 0.97802734
+    },
+    {
+      "text": "Two homes that,",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 112.6,
+      "confidence": 0.9580078
+    },
+    {
+      "text": "Two homes that, take away every day",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 112.6,
+      "confidence": 0.86328125
+    },
+    {
+      "text": "Two homes that I take away every day.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 112.6,
+      "confidence": 0.83251953
+    },
+    {
+      "text": "Particular day, I",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 117.22,
+      "confidence": 0.9003906
+    },
+    {
+      "text": "Particular day, I I felt",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 117.22,
+      "confidence": 0.9428711
+    },
+    {
+      "text": "Particular day, I I fell asleep.",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 117.22,
+      "confidence": 0.9560547
+    },
+    {
+      "text": "I woke up to a lot of",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 119.98,
+      "confidence": 0.90625
+    },
+    {
+      "text": "I woke up to a lot of things missing. You know?",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 119.98,
+      "confidence": 0.98535156
+    },
+    {
+      "text": "I woke up to a lot of things missing. You know?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 119.98,
+      "confidence": 0.9902344
+    },
+    {
+      "text": "Lot of things missing.",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 122.42,
+      "confidence": 0.99316406
+    },
+    {
+      "text": "Lot of things missing. And,",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 122.42,
+      "confidence": 0.9892578
+    },
+    {
+      "text": "Lot of things missing. And I approached them by",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 122.42,
+      "confidence": 0.89819336
+    },
+    {
+      "text": "Lot of things missing. And I approached them by, hey. You know?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 122.42,
+      "confidence": 0.88427734
+    },
+    {
+      "text": "Lot of things missing. And I approached them by, hey. You know?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 122.42,
+      "confidence": 0.88720703
+    },
+    {
+      "text": "I'm missing",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 126.84,
+      "confidence": 0.9941406
+    },
+    {
+      "text": "I'm missing no.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 126.84,
+      "confidence": 0.98657227
+    },
+    {
+      "text": "We'll we'll we'll",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 128.61,
+      "confidence": 0.92163086
+    },
+    {
+      "text": "What's up? You know anything?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 128.61,
+      "confidence": 0.9645996
+    },
+    {
+      "text": "What's up? You know anything?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 128.61,
+      "confidence": 0.96484375
+    },
+    {
+      "text": "Shane, anybody?",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 130.87,
+      "confidence": 0.88916016
+    },
+    {
+      "text": "Shane, anybody? Oh, no. We",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 130.87,
+      "confidence": 0.76416016
+    },
+    {
+      "text": "Shane, anybody? Oh, no. We no. Nothing.",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 130.87,
+      "confidence": 0.7709961
+    },
+    {
+      "text": "I'm shitting about you. Oh, no. We no. No. Nothing.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 130.87,
+      "confidence": 0.76782227
+    },
+    {
+      "text": "So they",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 134.23,
+      "confidence": 0.9980469
+    },
+    {
+      "text": "So they start playing the role, like,",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 134.23,
+      "confidence": 0.9116211
+    },
+    {
+      "text": "So they start playing the role, like, oh, man, what you wanna",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 134.23,
+      "confidence": 0.97314453
+    },
+    {
+      "text": "So they start playing the role, like, oh, man. What you want us to do? Help me",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 134.23,
+      "confidence": 0.9902344
+    },
+    {
+      "text": "So they start playing the role, like, oh, man, what you want us to do?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 134.23,
+      "confidence": 0.9921875
+    },
+    {
+      "text": "Help me look for it. I",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 137.73,
+      "confidence": 0.9970703
+    },
+    {
+      "text": "Help me look for it. I hope you look for it. I",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 137.73,
+      "confidence": 0.9604492
+    },
+    {
+      "text": "Help me look for it. I'd help you look for it. You're gonna help me",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 137.73,
+      "confidence": 0.9831543
+    },
+    {
+      "text": "Help me look for it. I'd help you look for it. You're gonna help me look for it? Now I know you",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 137.73,
+      "confidence": 0.9892578
+    },
+    {
+      "text": "Help me look for it. I'd help you look for it. You're gonna help me look for it? Now I know you",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 137.73,
+      "confidence": 0.9892578
+    },
+    {
+      "text": "I even act like you",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 143.28,
+      "confidence": 0.7416992
+    },
+    {
+      "text": "He feel like he's gonna help me find it.",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 143.28,
+      "confidence": 0.84277344
+    },
+    {
+      "text": "I used to act like you're trying to help me find it. But",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 143.28,
+      "confidence": 0.96875
+    },
+    {
+      "text": "I know you stole it.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 145.73,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "But",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 146.67,
+      "confidence": 0.9760742
+    },
+    {
+      "text": "but there's two of them. Right?",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 147.72,
+      "confidence": 0.9980469
+    },
+    {
+      "text": "but it's two of them. Right? Man. I really",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 147.72,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "but it's two of them. Right? Man. I really didn't wanna do that. I was really",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 147.72,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "but it's two of them. Right? Man. I really didn't wanna do that. I was really salty. Like, I'm like, damn.",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 147.72,
+      "confidence": 0.9970703
+    },
+    {
+      "text": "but it's two of them. Right? Man. I really didn't wanna do that. I was really",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 147.72,
+      "confidence": 0.9980469
+    },
+    {
+      "text": "salty. Like, I'm like, damn, bro. I feel like",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 150.74,
+      "confidence": 0.96069336
+    },
+    {
+      "text": "salty. Like, I'm like, damn, bro. I feel like a bit",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 150.74,
+      "confidence": 0.96191406
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "Great! I'm calling because I help business owners like yourself never miss another customer call again. Do you currently have someone answering your phones 24/7?",
+        "reasoning": "Move past pleasantries quickly into a value-focused opener with qualifying question",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Based on their phone coverage answer, identify pain points around missed calls or staffing costs"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm great, thanks! I'm calling because we help businesses like yours handle phone calls automatically - are you the person who handles customer calls or would know about missed calls?",
+        "reasoning": "Need to qualify decision maker and introduce value quickly before they hang up",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Confirm decision maker status and identify phone-related pain points"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm doing well, thanks! I help law firms handle more calls without hiring extra staff. Do you ever miss important calls or get stuck answering the same questions over and over?",
+        "reasoning": "Need to quickly establish value proposition and identify pain points",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Based on their response, dig deeper into their specific phone handling challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Sorry, let me start over - I'm calling because I help law firms handle more client calls without hiring extra staff. Do you ever miss potential clients when your phones get busy?",
+        "reasoning": "The opening was confusing and unprofessional - need to reset with clear value proposition",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Recover from poor opening with clear problem-focused question to engage prospect"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Sorry, let me start over. I'm calling because I help law firms handle more client calls without hiring extra staff. Are you currently missing calls or having clients wait on hold?",
+        "reasoning": "The opening was confusing - need to reset with clear value proposition and discovery question",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Recover with professional introduction, then move to qualifying their phone handling challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I apologize, I think we got off on the wrong foot. Let me start over - I'm calling about AI phone assistants that help law firms never miss client calls. Do you currently have someone answering your phones 24/7?",
+        "reasoning": "The conversation is confusing and off-track, need to reset with clear value proposition",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Restart the call with a clear, professional opening that states purpose and asks qualifying question"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I apologize, let me start over. I'm calling about AI phone assistants that help businesses never miss calls. Are you currently losing potential clients when you can't answer the phone?",
+        "reasoning": "The conversation is completely off track - need to reset with clear value proposition",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the entire conversation with professional opener and clear value proposition"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm sorry, I think we got disconnected there for a moment. Let me restart - I'm calling about AI phone assistants that handle calls for law firms. Do you currently have someone answering your phones during business hours?",
+        "reasoning": "The conversation became incoherent, need to reset and get back on track with a clear value proposition",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the conversation with clear introduction and discovery question about their current phone handling"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm sorry, I think we got off track. Let me start over - I'm calling about AI phone assistants that handle your business calls 24/7. Do you currently miss calls when you're busy with clients?",
+        "reasoning": "The conversation is completely derailed and confusing - need to reset with clear value proposition",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "negative"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the entire conversation with a clear, professional opener focused on business value"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm sorry, I think we might have a bad connection. Let me start over - I'm calling about AI phone assistants that handle your business calls 24/7. Are you the business owner?",
+        "reasoning": "The conversation is completely incoherent - need to reset and establish clear communication",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Restart the call with a clear, professional introduction and confirm you're speaking to the right person"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I apologize, but I think we may have a bad connection. Let me restart - I'm calling to see if you'd be interested in an AI assistant that handles your law firm's phone calls 24/7. Do you currently miss calls after hours?",
+        "reasoning": "Conversation is completely off track and confusing - need to reset with clear value proposition",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Start over with professional opening and clear value proposition for law firm"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I think we may have a bad connection or got off track. Let me restart - I'm calling to see if you'd be interested in an AI phone assistant that handles calls for your law firm. Do you currently have someone answering your phones?",
+        "reasoning": "The conversation is completely incoherent and needs to be reset with a clear opener",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the conversation with a clear value proposition and qualifying question"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I apologize, but I think we may have gotten off track. Let me start over - I'm calling about AI phone assistants that help businesses never miss calls. Do you currently have challenges with missed calls or phone coverage?",
+        "reasoning": "The conversation has completely derailed from the sales purpose - need to reset and redirect to the actual product",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the entire conversation with a clear value proposition and discovery question"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I think we might have a bad connection or crossed wires here. This is [Your Name] calling about AI phone assistants for your business - did I catch you at a bad time?",
+        "reasoning": "This conversation appears completely off-topic - need to redirect immediately to the actual sales purpose",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Restart the call properly with clear business introduction and value proposition"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I apologize, but I think we may have gotten off track from discussing your business phone needs. Can we refocus on how our AI assistant could help your business handle calls better?",
+        "reasoning": "This conversation appears to be about a personal story unrelated to the sales call - need to redirect professionally",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the call with proper business opening and discovery questions"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I think we may have a bad connection or crossed wires here. This is [Your Name] calling about AI phone assistants for businesses. Are you the right person to speak with about improving your company's phone system?",
+        "reasoning": "This conversation appears to be completely off-topic or a wrong number - need to redirect immediately",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "negative"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Clarify if this is the right contact and business, or politely end call if wrong number"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-12-05T09:31:55.795169"
+}

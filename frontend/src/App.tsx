@@ -181,14 +181,14 @@ function App() {
         <div className="h-full container mx-auto px-4 py-6">
           <div className="flex flex-col gap-4">
             {/* Top Section: Transcription + Primary Suggestion - FIXED HEIGHT */}
-            <div className="flex gap-4" style={{ height: '85vh' }}>
+            <div className="flex gap-4 min-h-[85vh] max-h-[85vh]">
               {/* Left: Live Transcription - Fixed height with internal scroll */}
-              <div className="flex-1 min-w-0 h-full">
+              <div className="flex-1 min-w-0 h-full flex flex-col">
                 <TranscriptionPanel transcriptions={transcriptions} />
               </div>
 
               {/* Right: Current Suggestion - ALWAYS SHOW BOTH CARDS */}
-              <div className="flex-1 min-w-0 h-full">
+              <div className="flex-1 min-w-0 h-full flex flex-col">
                 <PrimarySuggestionPanel
                   currentSuggestion={suggestions.length > 0 ? suggestions[suggestions.length - 1] : null}
                   previousSuggestion={suggestions.length > 1 ? suggestions[suggestions.length - 2] : null}
