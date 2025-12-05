@@ -180,15 +180,15 @@ function App() {
       <main className="flex-1 overflow-auto">
         <div className="h-full container mx-auto px-4 py-6">
           <div className="flex flex-col gap-4">
-            {/* Top Section: Transcription + Primary Suggestion - PRIORITY */}
-            <div className="flex gap-4" style={{ minHeight: '85vh' }}>
-              {/* Left: Live Transcription */}
-              <div className="flex-1 min-w-0">
+            {/* Top Section: Transcription + Primary Suggestion - FIXED HEIGHT */}
+            <div className="flex gap-4" style={{ height: '85vh' }}>
+              {/* Left: Live Transcription - Fixed height with internal scroll */}
+              <div className="flex-1 min-w-0 h-full">
                 <TranscriptionPanel transcriptions={transcriptions} />
               </div>
 
               {/* Right: Current Suggestion - ALWAYS SHOW BOTH CARDS */}
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 h-full">
                 <PrimarySuggestionPanel
                   currentSuggestion={suggestions.length > 0 ? suggestions[suggestions.length - 1] : null}
                   previousSuggestion={suggestions.length > 1 ? suggestions[suggestions.length - 2] : null}
