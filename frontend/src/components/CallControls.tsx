@@ -27,7 +27,7 @@ export const CallControls = ({
           onClick={onStart}
           disabled={disabled}
           size="lg"
-          className="bg-green-600 hover:bg-green-700 gap-2"
+          className="bg-green-600 hover:bg-green-700 text-white gap-2"
         >
           <Phone className="h-5 w-5" />
           Start Call

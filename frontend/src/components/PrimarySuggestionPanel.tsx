@@ -140,19 +140,22 @@ const SecondaryCard = ({ suggestion }: { suggestion: CoachingSuggestion }) => {
   const { primary_suggestion, context } = suggestion;
 
   return (
-    <Card className="opacity-70 scale-95 transition-all border border-border bg-muted/50">
+    <Card className="opacity-85 scale-98 transition-all border border-border bg-muted/50">
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
-          <CardTitle className="text-sm text-muted-foreground flex items-center gap-2">
+          <CardTitle className="text-base text-muted-foreground flex items-center gap-2">
             <Clock className="h-4 w-4" />
             Previous Suggestion
           </CardTitle>
           {getUrgencyBadge(primary_suggestion.urgency)}
         </div>
       </CardHeader>
-      <CardContent className="pt-2">
-        <p className="text-sm text-muted-foreground line-clamp-2">
+      <CardContent className="pt-2 space-y-2">
+        <p className="text-sm text-foreground">
           {primary_suggestion.text}
+        </p>
+        <p className="text-xs text-muted-foreground line-clamp-2">
+          {primary_suggestion.reasoning}
         </p>
       </CardContent>
     </Card>

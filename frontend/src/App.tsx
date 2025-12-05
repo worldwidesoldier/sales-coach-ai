@@ -125,11 +125,38 @@ function App() {
       {/* Header */}
       <header className="border-b">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold">Sales Coach AI</h1>
-            <p className="text-sm text-muted-foreground">
-              Real-time sales coaching assistant
-            </p>
+          <div className="flex items-center gap-4">
+            {/* Eternyx AI Logo SVG */}
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 200 200"
+              className="flex-shrink-0"
+            >
+              <defs>
+                <linearGradient id="eternyxGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#00D9FF" />
+                  <stop offset="100%" stopColor="#7B3FF2" />
+                </linearGradient>
+              </defs>
+              {/* Spiral */}
+              <circle cx="65" cy="100" r="55" fill="none" stroke="url(#eternyxGradient)" strokeWidth="4" opacity="0.3"/>
+              <path d="M 65 45 Q 120 45, 120 100 Q 120 155, 65 155 Q 10 155, 10 100 Q 10 55, 50 50" fill="none" stroke="url(#eternyxGradient)" strokeWidth="5" strokeLinecap="round"/>
+              <circle cx="50" cy="50" r="8" fill="#7B3FF2"/>
+              {/* AI Text */}
+              <text x="140" y="120" fontSize="52" fontWeight="bold" fill="#7B3FF2">AI</text>
+            </svg>
+            <div>
+              <div className="flex items-center gap-2">
+                <h1 className="text-xl font-bold bg-gradient-to-r from-cyan-500 to-purple-600 bg-clip-text text-transparent">
+                  ETERNYX
+                </h1>
+                <span className="text-xl font-bold">Sales Coach</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Real-time AI sales coaching
+              </p>
+            </div>
           </div>
           <button
             onClick={toggleTheme}
@@ -151,10 +178,10 @@ function App() {
 
       {/* Main Content */}
       <main className="flex-1 overflow-auto">
-        <div className="container mx-auto px-4 py-6">
-          <div className="flex flex-col gap-4">
+        <div className="h-full container mx-auto px-4 py-6">
+          <div className="h-full flex flex-col gap-4">
             {/* Top Section: Transcription + Primary Suggestion (75% height) */}
-            <div className="flex gap-4 min-h-0" style={{ flex: '0 0 75%' }}>
+            <div className="flex gap-4 min-h-0 h-full" style={{ flex: '0 0 75%' }}>
               {/* Left: Live Transcription */}
               <div className="flex-1 min-w-0">
                 <TranscriptionPanel transcriptions={transcriptions} />

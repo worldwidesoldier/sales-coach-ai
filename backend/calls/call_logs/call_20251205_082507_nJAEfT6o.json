@@ -1,0 +1,206 @@
+{
+  "id": "call_20251205_082507_nJAEfT6o",
+  "client_id": "nJAEfT6oGQCEV7CpAAAV",
+  "start_time": "2025-12-05T08:25:07.082690",
+  "transcripts": [
+    {
+      "text": "Hello,",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.95336914
+    },
+    {
+      "text": "Hello, brother. How are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 1.0
+    },
+    {
+      "text": "Hello, brother. How are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 1.0
+    },
+    {
+      "text": "I'm good. How about",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.3,
+      "confidence": 0.99609375
+    },
+    {
+      "text": "I'm good. How about yourself?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 2.3,
+      "confidence": 1.0
+    },
+    {
+      "text": "I",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 5.22,
+      "confidence": 0.45581055
+    },
+    {
+      "text": "I couldn't be",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 5.22,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I couldn't be better, homie.",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 5.22,
+      "confidence": 0.9980469
+    },
+    {
+      "text": "So",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 8.11,
+      "confidence": 0.9951172
+    },
+    {
+      "text": "So what I'm trying to",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 8.11,
+      "confidence": 0.99609375
+    },
+    {
+      "text": "So what I'm trying to tell you is that",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 8.11,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "So what I'm trying to tell you is that we are",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 8.11,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "So what I'm trying to tell you is that",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 8.11,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "we are calling from",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 11.58,
+      "confidence": 1.0
+    },
+    {
+      "text": "we are calling from Internets AI",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 11.58,
+      "confidence": 0.99609375
+    },
+    {
+      "text": "we are calling from Internets AI trying to",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 11.58,
+      "confidence": 0.9970703
+    },
+    {
+      "text": "we are calling from Internets AI trying to",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 11.58,
+      "confidence": 0.9970703
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "I'm calling about AI phone assistants that handle your calls 24/7. Are you the owner or decision maker for [business name]?",
+        "reasoning": "Need to quickly establish purpose and qualify decision maker after casual greeting",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Confirm decision maker status, then ask permission to explain why you're calling"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm doing great, thanks! Hey, I'm calling because I help business owners like yourself stop missing calls and losing money. Do you have a quick minute?",
+        "reasoning": "Build on the positive rapport and quickly transition to value proposition with permission to continue",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "If they give permission, ask discovery question about missed calls or phone challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Great to hear! I'm calling because I help businesses like yours never miss another customer call. Are you the person who handles your phone systems?",
+        "reasoning": "Need to transition from casual rapport to business purpose and confirm decision maker",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Confirm they're the decision maker, then ask discovery questions about phone challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Sorry to interrupt - I'm calling about something that could help your business. Do you have 30 seconds for me to explain why I called?",
+        "reasoning": "Customer was mid-sentence, need to politely interrupt and get permission to continue",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Get permission to continue, then deliver value proposition quickly"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-12-05T08:25:26.956221"
+}
