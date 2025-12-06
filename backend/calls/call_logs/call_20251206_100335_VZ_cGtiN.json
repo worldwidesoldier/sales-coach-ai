@@ -1,0 +1,206 @@
+{
+  "id": "call_20251206_100335_VZ_cGtiN",
+  "client_id": "VZ_cGtiNypeaHTOvAABD",
+  "start_time": "2025-12-06T10:03:35.853463",
+  "transcripts": [
+    {
+      "text": "Hello, sir. How are you doing",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.4,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Hello, sir. How are you doing today? You feeling alright?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.4,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Hello, sir. How are you doing today? You feeling alright?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 0.4,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "It",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 4.07,
+      "confidence": 0.96777344
+    },
+    {
+      "text": "It is really a pleasure",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 4.07,
+      "confidence": 1.0
+    },
+    {
+      "text": "It is really a pleasure to be able",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 4.07,
+      "confidence": 1.0
+    },
+    {
+      "text": "Hello, sir. How",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 27.34,
+      "confidence": 0.9941406
+    },
+    {
+      "text": "Hello, sir. How are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 27.34,
+      "confidence": 0.9995117
+    },
+    {
+      "text": "It is really my",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 32.04,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "It is really my pleasure to be able to",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 32.04,
+      "confidence": 1.0
+    },
+    {
+      "text": "It is really my pleasure to be able to come in here and",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 32.04,
+      "confidence": 1.0
+    },
+    {
+      "text": "It is really my pleasure to be able to come in here and talk to you about our",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 32.04,
+      "confidence": 1.0
+    },
+    {
+      "text": "It is really my pleasure to be able to come in here and talk to you about our",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 32.04,
+      "confidence": 1.0
+    },
+    {
+      "text": "business and process",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 36.35,
+      "confidence": 0.921875
+    },
+    {
+      "text": "business and processes.",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 36.35,
+      "confidence": 0.9892578
+    },
+    {
+      "text": "You're feeling alright?",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 38.36,
+      "confidence": 0.97387695
+    },
+    {
+      "text": "You're feeling alright?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 38.36,
+      "confidence": 0.99072266
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "I'm calling because I help businesses like yours capture more leads with our AI phone assistant. Do you ever miss important calls when you're busy?",
+        "reasoning": "Need to quickly transition from greeting to business purpose with a qualifying question",
+        "confidence": 87,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Get past the greeting quickly and establish business reason for call with pain point question"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Great to hear! I'm calling because I help business owners stop missing calls when they're busy. Are you the owner or decision maker there?",
+        "reasoning": "Customer seems positive but got cut off - redirect to business purpose and qualify authority",
+        "confidence": 87,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Confirm decision maker status then transition to pain point discovery"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Sorry, I think we might have a connection issue. Let me start over - this is [your name] with [company]. Is this a good time to chat for just a minute?",
+        "reasoning": "Address the awkward repetition and restart professionally with permission",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Clean restart, get permission to continue, then move to quick value proposition"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I appreciate that! It sounds like you might have called me actually - what can I help you with today?",
+        "reasoning": "Customer seems to be pitching something to the salesperson, need to clarify who called whom",
+        "confidence": 78,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Clarify the purpose of the call and who initiated contact before proceeding"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-12-06T10:04:19.002754"
+}

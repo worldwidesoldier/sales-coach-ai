@@ -47,8 +47,8 @@ export const TranscriptionPanel = ({ transcriptions }: TranscriptionPanelProps) 
   };
 
   return (
-    <Card className="flex flex-col h-full min-h-full max-h-full">
-      <CardHeader className="pb-3">
+    <Card className="flex flex-col h-full">
+      <CardHeader className="pb-3 flex-shrink-0">
         <CardTitle className="text-lg flex items-center gap-2">
           Live Transcription
           {transcriptions.length > 0 && (

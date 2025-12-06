@@ -1,19 +1,223 @@
+"""
+Configuration management for Sales Coach AI
+Centralized configuration with environment variable validation
+"""
+
 import os
+from typing import Optional
 from dotenv import load_dotenv
 
 # Load environment variables from .env file
 load_dotenv()
 
-# API Keys Configuration (from .env file)
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY")
-DEEPGRAM_API_KEY = os.getenv("DEEPGRAM_API_KEY")
 
-# System Configuration
-PORT = int(os.getenv("PORT", "5000"))
-DEBUG = os.getenv("DEBUG", "True").lower() == "true"
-SECRET_KEY = os.getenv("SECRET_KEY", "your-secret-key-change-in-production")
+class ConfigError(Exception):
+    """Raised when configuration is invalid"""
+    pass
 
-# Claude System Prompt
+
+class Config:
+    """Application configuration with validation"""
+
+    # ==================================================================
+    # REQUIRED CONFIGURATION (Must be set)
+    # ==================================================================
+
+    ANTHROPIC_API_KEY: str
+    DEEPGRAM_API_KEY: str
+
+    # ==================================================================
+    # SERVER CONFIGURATION
+    # ==================================================================
+
+    PORT: int = int(os.getenv("PORT", "5000"))
+    HOST: str = os.getenv("HOST", "0.0.0.0")
+    DEBUG: bool = os.getenv("DEBUG", "True").lower() == "true"
+    SECRET_KEY: str = os.getenv("SECRET_KEY", "dev-secret-key-CHANGE-IN-PRODUCTION")
+
+    # ==================================================================
+    # FRONTEND CONFIGURATION
+    # ==================================================================
+
+    # Allow multiple origins for CORS (comma-separated)
+    CORS_ORIGINS: str = os.getenv(
+        "CORS_ORIGINS",
+        "http://localhost:5173,http://localhost:3000"
+    )
+
+    # ==================================================================
+    # API CONFIGURATION
+    # ==================================================================
+
+    # Claude (Anthropic) Configuration
+    CLAUDE_MODEL: str = os.getenv("CLAUDE_MODEL", "claude-sonnet-4-20250514")
+    CLAUDE_MAX_TOKENS: int = int(os.getenv("CLAUDE_MAX_TOKENS", "800"))
+    CLAUDE_TEMPERATURE: float = float(os.getenv("CLAUDE_TEMPERATURE", "0.7"))
+    CLAUDE_TIMEOUT: int = int(os.getenv("CLAUDE_TIMEOUT", "30"))  # seconds
+
+    # Deepgram Configuration
+    DEEPGRAM_MODEL: str = os.getenv("DEEPGRAM_MODEL", "nova-2")
+    DEEPGRAM_LANGUAGE: str = os.getenv("DEEPGRAM_LANGUAGE", "en-US")
+    DEEPGRAM_ENCODING: str = os.getenv("DEEPGRAM_ENCODING", "opus")
+    DEEPGRAM_TIMEOUT: int = int(os.getenv("DEEPGRAM_TIMEOUT", "30"))  # seconds
+
+    # ==================================================================
+    # CONVERSATION MANAGEMENT
+    # ==================================================================
+
+    # Maximum messages to keep in context
+    MAX_CONTEXT_MESSAGES: int = int(os.getenv("MAX_CONTEXT_MESSAGES", "15"))
+
+    # Maximum tokens for Claude context (approximate)
+    MAX_CONTEXT_TOKENS: int = int(os.getenv("MAX_CONTEXT_TOKENS", "3000"))
+
+    # Session timeout (minutes)
+    SESSION_TIMEOUT_MINUTES: int = int(os.getenv("SESSION_TIMEOUT_MINUTES", "60"))
+
+    # ==================================================================
+    # STORAGE CONFIGURATION
+    # ==================================================================
+
+    # Calls storage directory
+    CALLS_DIR: str = os.getenv(
+        "CALLS_DIR",
+        os.path.join(os.path.dirname(__file__), "calls", "call_logs")
+    )
+
+    # Logs directory
+    LOGS_DIR: str = os.getenv(
+        "LOGS_DIR",
+        os.path.join(os.path.dirname(__file__), "logs")
+    )
+
+    # ==================================================================
+    # RATE LIMITING
+    # ==================================================================
+
+    # Rate limit for API endpoints (requests per minute)
+    RATE_LIMIT_PER_MINUTE: int = int(os.getenv("RATE_LIMIT_PER_MINUTE", "60"))
+
+    # Max audio chunks per second
+    MAX_AUDIO_CHUNKS_PER_SECOND: int = int(os.getenv("MAX_AUDIO_CHUNKS_PER_SECOND", "20"))
+
+    # ==================================================================
+    # PERFORMANCE TUNING
+    # ==================================================================
+
+    # Maximum concurrent WebSocket connections
+    MAX_CONNECTIONS: int = int(os.getenv("MAX_CONNECTIONS", "100"))
+
+    # Maximum request size (MB)
+    MAX_CONTENT_LENGTH_MB: int = int(os.getenv("MAX_CONTENT_LENGTH_MB", "10"))
+
+    # ==================================================================
+    # LOGGING CONFIGURATION
+    # ==================================================================
+
+    LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
+    LOG_FORMAT: str = os.getenv(
+        "LOG_FORMAT",
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
+
+    @classmethod
+    def validate(cls) -> None:
+        """
+        Validate all required configuration values
+
+        Raises:
+            ConfigError: If required configuration is missing or invalid
+        """
+        errors = []
+
+        # Validate Anthropic API Key
+        anthropic_key = os.getenv("ANTHROPIC_API_KEY")
+        if not anthropic_key:
+            errors.append("ANTHROPIC_API_KEY is not set in .env file")
+        elif anthropic_key == "your_anthropic_api_key_here":
+            errors.append("ANTHROPIC_API_KEY appears to be a placeholder value")
+        elif len(anthropic_key) < 20:
+            errors.append("ANTHROPIC_API_KEY appears to be invalid (too short)")
+        else:
+            cls.ANTHROPIC_API_KEY = anthropic_key
+
+        # Validate Deepgram API Key
+        deepgram_key = os.getenv("DEEPGRAM_API_KEY")
+        if not deepgram_key:
+            errors.append("DEEPGRAM_API_KEY is not set in .env file")
+        elif deepgram_key == "your_deepgram_api_key_here":
+            errors.append("DEEPGRAM_API_KEY appears to be a placeholder value")
+        elif len(deepgram_key) < 20:
+            errors.append("DEEPGRAM_API_KEY appears to be invalid (too short)")
+        else:
+            cls.DEEPGRAM_API_KEY = deepgram_key
+
+        # Validate port range
+        if not (1024 <= cls.PORT <= 65535):
+            errors.append(f"PORT must be between 1024 and 65535 (got {cls.PORT})")
+
+        # Validate secret key for production
+        if not cls.DEBUG and cls.SECRET_KEY == "dev-secret-key-CHANGE-IN-PRODUCTION":
+            errors.append("SECRET_KEY must be changed for production deployment")
+
+        # Validate numeric ranges
+        if cls.CLAUDE_MAX_TOKENS < 100 or cls.CLAUDE_MAX_TOKENS > 4096:
+            errors.append(f"CLAUDE_MAX_TOKENS must be between 100 and 4096 (got {cls.CLAUDE_MAX_TOKENS})")
+
+        if cls.CLAUDE_TEMPERATURE < 0 or cls.CLAUDE_TEMPERATURE > 1:
+            errors.append(f"CLAUDE_TEMPERATURE must be between 0 and 1 (got {cls.CLAUDE_TEMPERATURE})")
+
+        if cls.MAX_CONTEXT_MESSAGES < 1 or cls.MAX_CONTEXT_MESSAGES > 100:
+            errors.append(f"MAX_CONTEXT_MESSAGES must be between 1 and 100 (got {cls.MAX_CONTEXT_MESSAGES})")
+
+        # Create required directories
+        try:
+            os.makedirs(cls.CALLS_DIR, exist_ok=True)
+            os.makedirs(cls.LOGS_DIR, exist_ok=True)
+        except Exception as e:
+            errors.append(f"Failed to create required directories: {e}")
+
+        # Raise all errors at once
+        if errors:
+            error_message = "Configuration validation failed:\n" + "\n".join(f"  - {err}" for err in errors)
+            raise ConfigError(error_message)
+
+    @classmethod
+    def get_cors_origins(cls) -> list:
+        """Get list of allowed CORS origins"""
+        return [origin.strip() for origin in cls.CORS_ORIGINS.split(",")]
+
+    @classmethod
+    def is_production(cls) -> bool:
+        """Check if running in production mode"""
+        return not cls.DEBUG
+
+    @classmethod
+    def print_config(cls) -> None:
+        """Print current configuration (excluding secrets)"""
+        print("=" * 60)
+        print("SALES COACH AI - CONFIGURATION")
+        print("=" * 60)
+        print(f"Environment: {'PRODUCTION' if cls.is_production() else 'DEVELOPMENT'}")
+        print(f"Server: {cls.HOST}:{cls.PORT}")
+        print(f"Debug Mode: {cls.DEBUG}")
+        print(f"CORS Origins: {cls.CORS_ORIGINS}")
+        print(f"Claude Model: {cls.CLAUDE_MODEL}")
+        print(f"Claude Max Tokens: {cls.CLAUDE_MAX_TOKENS}")
+        print(f"Deepgram Model: {cls.DEEPGRAM_MODEL}")
+        print(f"Deepgram Language: {cls.DEEPGRAM_LANGUAGE}")
+        print(f"Max Context Messages: {cls.MAX_CONTEXT_MESSAGES}")
+        print(f"Session Timeout: {cls.SESSION_TIMEOUT_MINUTES} minutes")
+        print(f"Calls Directory: {cls.CALLS_DIR}")
+        print(f"Logs Directory: {cls.LOGS_DIR}")
+        print(f"Log Level: {cls.LOG_LEVEL}")
+        print("=" * 60)
+
+
+# ==================================================================
+# CLAUDE SYSTEM PROMPT
+# ==================================================================
+
 SYSTEM_PROMPT = """You are a real-time sales coach assistant helping a salesperson during live cold calls selling AI phone assistant services.
 
 PRODUCT CONTEXT:
@@ -138,11 +342,11 @@ SCENARIO: Customer says "This sounds expensive"
 Always respond with valid JSON only. Be concise, actionable, and strategic.
 """
 
-# Deepgram Configuration
-DEEPGRAM_MODEL = "nova-2"
-DEEPGRAM_LANGUAGE = "en-US"
 
-# Backup Toolkit - Pre-loaded Scripts
+# ==================================================================
+# BACKUP TOOLKIT - Pre-loaded Scripts
+# ==================================================================
+
 BACKUP_TOOLKIT = {
     "opener": {
         "title": "🎯 Opening Scripts",
@@ -305,3 +509,11 @@ BACKUP_TOOLKIT = {
         ]
     }
 }
+
+
+# Validate configuration on import
+try:
+    Config.validate()
+except ConfigError as e:
+    print(f"\n❌ CONFIGURATION ERROR:\n{e}\n")
+    raise

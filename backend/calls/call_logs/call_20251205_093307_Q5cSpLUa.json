@@ -1,0 +1,285 @@
+{
+  "id": "call_20251205_093307_Q5cSpLUa",
+  "client_id": "Q5cSpLUaEfHMyVSNAAAp",
+  "start_time": "2025-12-05T09:33:07.358150",
+  "transcripts": [
+    {
+      "text": "Everyday, you send me",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.64746094
+    },
+    {
+      "text": "Everyday, you send me",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 0.62158203
+    },
+    {
+      "text": "this particular day,",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.05,
+      "confidence": 0.98095703
+    },
+    {
+      "text": "This particular day, I I fell asleep",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.05,
+      "confidence": 0.5859375
+    },
+    {
+      "text": "This particular day, I fell asleep. I woke",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.05,
+      "confidence": 0.9013672
+    },
+    {
+      "text": "This particular day, I I fell asleep.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 2.05,
+      "confidence": 0.8647461
+    },
+    {
+      "text": "I woke up to a lot of things,",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 5.64,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I woke up to a lot of things missing. You know?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 5.64,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I woke up to a lot of things missing. You know?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 5.64,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Of things missing.",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 8.53,
+      "confidence": 0.95410156
+    },
+    {
+      "text": "Of things missing.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 8.53,
+      "confidence": 0.95703125
+    },
+    {
+      "text": "I approached them,",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 9.91,
+      "confidence": 0.9580078
+    },
+    {
+      "text": "I approached them by, hey, man.",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 9.91,
+      "confidence": 0.7651367
+    },
+    {
+      "text": "I approached them by, hey, man.",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 9.91,
+      "confidence": 0.75439453
+    },
+    {
+      "text": "I'm missing",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 12.74,
+      "confidence": 0.9770508
+    },
+    {
+      "text": "know?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 13.68,
+      "confidence": 0.85058594
+    },
+    {
+      "text": "know, what what what's up?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 13.68,
+      "confidence": 0.94921875
+    },
+    {
+      "text": "you know, what what what's up? You know anything?",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 13.68,
+      "confidence": 0.89501953
+    },
+    {
+      "text": "you know, what what what's up? You know anything? I'm training, buddy?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 13.68,
+      "confidence": 0.8676758
+    },
+    {
+      "text": "I'm",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 18.1,
+      "confidence": 0.717041
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "Sorry, I think we got cut off there. Let me start over - is this a good time to chat about how we're helping businesses handle their phone calls automatically?",
+        "reasoning": "The opening was garbled, need to reset professionally and get permission to continue",
+        "confidence": 95,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Get permission to continue, then deliver clear value proposition"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I hear you - sounds like you're pretty busy. Are you getting a lot of calls during the day that are interrupting your work?",
+        "reasoning": "Redirect the conversation back to business and identify potential pain points",
+        "confidence": 78,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Get conversation back on track and start qualifying their phone/call volume challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm sorry, I think we got disconnected or there's some confusion. This is [Your Name] calling about AI phone assistants for your business. Did I catch you at a bad time?",
+        "reasoning": "The conversation seems confused or disconnected - need to reset and clarify the call purpose",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the call properly with clear introduction and purpose"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I think we might have a bad connection or I may have called at a confusing time. Let me restart - this is [Name] calling about AI phone assistants for your business. Do you have 30 seconds?",
+        "reasoning": "The conversation is completely off-track and confusing - need to reset and properly introduce the call purpose",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the call completely with proper introduction and permission to continue"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm sorry, I think we might have a bad connection. This is [Your Name] calling about AI phone assistants for your business - did I catch you at a good time?",
+        "reasoning": "The conversation appears garbled or disconnected - need to reset and establish proper contact",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Restart the call properly with clear introduction and permission to continue"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm sorry, I think we might have a connection issue. This is [Your Name] calling about AI phone assistants for your business - is now a good time to chat?",
+        "reasoning": "The conversation appears garbled or confused - need to reset and establish proper context",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the conversation completely and start with proper introduction"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I think we may have a bad connection - let me start over. Hi, this is [name] calling about AI phone assistants that handle your calls 24/7. Do you have 30 seconds?",
+        "reasoning": "The conversation is completely off-track and incoherent - need to reset with a proper opening",
+        "confidence": 95,
+        "urgency": "critical"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Reset the call with proper introduction and value proposition"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-12-05T09:34:27.429476"
+}
