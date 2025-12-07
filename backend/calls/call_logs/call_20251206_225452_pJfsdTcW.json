@@ -1,0 +1,228 @@
+{
+  "id": "call_20251206_225452_pJfsdTcW",
+  "client_id": "pJfsdTcWB36IKCmwAAAH",
+  "start_time": "2025-12-06T22:54:52.480212",
+  "transcripts": [
+    {
+      "text": "Hello, sir. Hi.",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 0.0,
+      "confidence": 0.80200195
+    },
+    {
+      "text": "Hello, sir. How are you doing today?",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 0.0,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "I'm",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.0,
+      "confidence": 0.45281982
+    },
+    {
+      "text": "I'm alright. How about you?",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 2.0,
+      "confidence": 0.9890137
+    },
+    {
+      "text": "I'm alright. How about you, sir?",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 2.0,
+      "confidence": 0.99853516
+    },
+    {
+      "text": "I",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 4.61,
+      "confidence": 0.56152344
+    },
+    {
+      "text": "I couldn't be better,",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 4.61,
+      "confidence": 1.0
+    },
+    {
+      "text": "I couldn't be better, man.",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 4.61,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Yeah. I'm",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 7.25,
+      "confidence": 0.9975586
+    },
+    {
+      "text": "Yeah. I'm glad to to",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 7.25,
+      "confidence": 0.9863281
+    },
+    {
+      "text": "Yeah. I'm glad to to have you come in",
+      "speaker": "Customer",
+      "is_final": false,
+      "timestamp": 7.25,
+      "confidence": 0.99902344
+    },
+    {
+      "text": "Yeah. I'm glad to to have you come in,",
+      "speaker": "Customer",
+      "is_final": true,
+      "timestamp": 7.25,
+      "confidence": 0.9980469
+    },
+    {
+      "text": "And I'm calling because",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 10.81,
+      "confidence": 0.9873047
+    },
+    {
+      "text": "And I'm calling because I've been business",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 10.81,
+      "confidence": 0.9838867
+    },
+    {
+      "text": "And I'm calling because I've been business owner like yourself",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 10.81,
+      "confidence": 0.9873047
+    },
+    {
+      "text": "and I'm calling because I've been business owner like yourself stopped missing",
+      "speaker": "Salesperson",
+      "is_final": false,
+      "timestamp": 10.81,
+      "confidence": 0.9873047
+    },
+    {
+      "text": "and I'm calling because I've been business owner like yourself stopped missing.",
+      "speaker": "Salesperson",
+      "is_final": true,
+      "timestamp": 10.81,
+      "confidence": 0.9838867
+    }
+  ],
+  "suggestions": [
+    {
+      "primary_suggestion": {
+        "text": "Great! I'm calling because I help business owners like yourself stop missing important calls. Are you losing any leads when you can't answer the phone?",
+        "reasoning": "Move quickly from pleasantries to value proposition and qualifying question",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Based on their response, either dig into pain points or handle pushback if they're not interested"
+    },
+    {
+      "primary_suggestion": {
+        "text": "I'm doing great, thanks! Hey, I'm calling because we help businesses like yours never miss another customer call. Are you the person who handles customer service decisions there?",
+        "reasoning": "Move quickly from pleasantries to value prop and qualify decision maker",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Confirm decision maker status, then transition to discovery questions about their phone/customer service challenges"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Great to hear! Listen, I'm calling because I help business owners like yourself stop missing calls when you're busy. Are you losing any potential customers to voicemail right now?",
+        "reasoning": "Move quickly from pleasantries to business purpose with a pain-point question",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Transition from rapport to identifying their phone/lead capture pain points"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Thanks for taking my call! I'm calling because I help businesses like yours capture more leads with AI phone assistants. What kind of business are you running?",
+        "reasoning": "Need to quickly establish purpose and start discovery to understand their business",
+        "confidence": 90,
+        "urgency": "normal"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "positive"
+      },
+      "highlight_toolkit": [
+        "opener",
+        "discovery"
+      ],
+      "next_move": "Get them talking about their business to identify phone-related pain points"
+    },
+    {
+      "primary_suggestion": {
+        "text": "Sorry, let me restart that - I'm calling because I help business owners like yourself stop missing important calls. Are you currently losing leads when you can't answer the phone?",
+        "reasoning": "Salesperson fumbled the opening, needs to recover with clear value prop and qualifying question",
+        "confidence": 90,
+        "urgency": "high"
+      },
+      "context": {
+        "call_stage": "opening",
+        "objection_detected": false,
+        "objection_type": "none",
+        "buying_signal": false,
+        "sentiment": "neutral"
+      },
+      "highlight_toolkit": [
+        "opener"
+      ],
+      "next_move": "Get clear on their phone/lead capture challenges before pitching solution"
+    }
+  ],
+  "status": "ended",
+  "end_time": "2025-12-06T22:55:16.107890"
+}
