@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import socket from '@/lib/socket';
-import { Transcription, Suggestion, ConnectionStatus } from '@/types';
+import { Transcription, Suggestion, CoachingGuidance, FeatureFlags, ConnectionStatus } from '@/types';
 
 interface UseWebSocketReturn {
   connectionStatus: ConnectionStatus;
@@ -9,6 +9,8 @@ interface UseWebSocketReturn {
   sendAudio: (audioData: string) => void;
   onTranscription: (callback: (transcript: Transcription) => void) => void;
   onSuggestion: (callback: (suggestion: Suggestion) => void) => void;
+  onCoachingGuidance: (callback: (guidance: CoachingGuidance) => void) => () => void;
+  fetchFeatureFlags: () => Promise<FeatureFlags>;
   sessionId: string | null;
 }
 
@@ -137,6 +139,24 @@ export const useWebSocket = (): UseWebSocketReturn => {
     };
   }, []);
 
+  const onCoachingGuidance = useCallback((callback: (guidance: CoachingGuidance) => void) => {
+    socket.on('coaching_guidance', callback);
+    return () => {
+      socket.off('coaching_guidance', callback);
+    };
+  }, []);
+
+  const fetchFeatureFlags = useCallback(async () => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL || 'http://localhost:5001'}/api/feature-flags`);
+      const flags = await response.json();
+      return flags;
+    } catch (error) {
+      console.error('Failed to fetch feature flags:', error);
+      return { coaching_mode: 'suggestions', guidance_version: 'v1' };
+    }
+  }, []);
+
   return {
     connectionStatus,
     startCall,
@@ -144,6 +164,8 @@ export const useWebSocket = (): UseWebSocketReturn => {
     sendAudio,
     onTranscription,
     onSuggestion,
+    onCoachingGuidance,
+    fetchFeatureFlags,
     sessionId,
   };
 };

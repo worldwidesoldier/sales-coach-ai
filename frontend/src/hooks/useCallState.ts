@@ -1,9 +1,11 @@
 import { useState, useCallback } from 'react';
-import { CallState, Transcription, Suggestion } from '@/types';
+import { CallState, Transcription, Suggestion, CoachingGuidance, FeatureFlags, DEFAULT_COACHING_GUIDANCE } from '@/types';
 
 interface UseCallStateReturn extends CallState {
   addTranscription: (transcript: Transcription) => void;
   addSuggestion: (suggestion: Suggestion) => void;
+  addCoachingGuidance: (guidance: CoachingGuidance) => void;
+  setFeatureFlags: (flags: FeatureFlags) => void;
   startCall: () => void;
   endCall: () => void;
   setAudioLevel: (level: number) => void;
@@ -16,8 +18,13 @@ const initialState: CallState = {
   sessionId: null,
   transcriptions: [],
   suggestions: [],
+  coachingGuidance: DEFAULT_COACHING_GUIDANCE,  // Show cards immediately
   audioLevel: 0,
   isMuted: false,
+  featureFlags: {  // NEW
+    coaching_mode: 'suggestions',
+    guidance_version: 'v1'
+  }
 };
 
 export const useCallState = (): UseCallStateReturn => {
@@ -34,6 +41,20 @@ export const useCallState = (): UseCallStateReturn => {
     setState(prev => ({
       ...prev,
       suggestions: [...prev.suggestions, suggestion],
+    }));
+  }, []);
+
+  const addCoachingGuidance = useCallback((guidance: CoachingGuidance) => {
+    setState(prev => ({
+      ...prev,
+      coachingGuidance: guidance,
+    }));
+  }, []);
+
+  const setFeatureFlags = useCallback((flags: FeatureFlags) => {
+    setState(prev => ({
+      ...prev,
+      featureFlags: flags,
     }));
   }, []);
 
@@ -75,6 +96,8 @@ export const useCallState = (): UseCallStateReturn => {
     ...state,
     addTranscription,
     addSuggestion,
+    addCoachingGuidance,
+    setFeatureFlags,
     startCall,
     endCall,
     setAudioLevel,

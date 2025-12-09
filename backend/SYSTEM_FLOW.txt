@@ -1,0 +1,300 @@
+================================================================================
+COACHING SYSTEM DATA FLOW
+================================================================================
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                         SALES COACH AI - BACKEND FLOW                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+1. TRANSCRIPTION EVENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Frontend                                          Backend
+    --------                                          -------
+
+    🎤 Audio
+       │
+       └──audio_stream──────────────────────────────►│
+                                                      │
+                                              Deepgram Service
+                                                      │
+       ┌──transcription────────────────────────────◄─┘
+       │
+    📝 Transcript Received
+       │
+       └──(stored in UI)
+
+
+2. COACHING GUIDANCE REQUEST (COACHING_MODE=guidance)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    app.py                          claude_service.py                Config
+    ------                          -----------------                ------
+
+    handle_transcript()
+         │
+         │ if is_final:
+         ├──► conversation_manager.add_message()
+         │
+         └──► get_ai_suggestion(session_id, client_id)
+                      │
+                      ├─► context = conversation_manager.get_context()
+                      │
+                      ├─► coaching_mode = Config.COACHING_MODE ◄─────────┐
+                      │                                                   │
+                      │                                              .env file
+                      │                                         COACHING_MODE
+                      │
+                      └─► if coaching_mode == 'guidance':
+                              │
+                              └──► get_coaching_guidance(context)
+                                       │
+                                       ├─► _detect_call_stage() ◄──┐
+                                       │        │                   │
+                                       │        │   [Keyword Analysis]
+                                       │        │   - opening keywords
+                                       │        │   - discovery keywords
+                                       │        │   - pitch keywords
+                                       │        │   - objection keywords
+                                       │        │   - close keywords
+                                       │        │
+                                       │        │   [Natural Progression]
+                                       │        │   - boost next stages
+                                       │        │
+                                       │        └──► detected_stage
+                                       │                 │
+                                       │                 │ confidence: 85%
+                                       │                 │ stage: "discovery"
+                                       │
+                                       ├─► _track_objectives() ◄──────┐
+                                       │        │                      │
+                                       │        │           CALL_OBJECTIVES
+                                       │        │           [discovery]:
+                                       │        │           - qualify_volume
+                                       │        │           - identify_pain
+                                       │        │           - current_solution
+                                       │        │
+                                       │        │   [Keyword Matching]
+                                       │        │   - scan conversation
+                                       │        │   - mark completed
+                                       │        │
+                                       │        └──► objectives
+                                       │                 │
+                                       │                 │ completed: [...]
+                                       │                 │ remaining: [...]
+                                       │
+                                       ├─► _format_conversation_for_coaching()
+                                       │        │
+                                       │        └──► "Speaker: text\n..."
+                                       │
+                                       ├─► Claude API Call
+                                       │        │
+                                       │        │ COACHING_SYSTEM_PROMPT:
+                                       │        │ "You are a real-time coach
+                                       │        │  providing STRATEGIC guidance
+                                       │        │  (NOT exact scripts)..."
+                                       │        │
+                                       │        └──► JSON response
+                                       │                 │
+                                       │                 │ stage_validation
+                                       │                 │ focus
+                                       │                 │ key_questions
+                                       │                 │ talking_points
+                                       │                 │ objectives
+                                       │
+                                       ├─► _parse_coaching_response()
+                                       │        │
+                                       │        └──► validated JSON
+                                       │
+                                       └─► Build guidance object
+                                                │
+                                                └──► return guidance
+
+
+3. DUAL EVENT EMISSION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    app.py                                            Frontend
+    ------                                            --------
+
+    get_ai_suggestion()
+         │
+         ├──► guidance['metadata']['session_id'] = session_id
+         │
+         ├──► socketio.emit('coaching_guidance', guidance)
+         │                                          │
+         │                                          └──────────────►│
+         │                                                           │
+         │                                                    socket.on('coaching_guidance')
+         │                                                           │
+         ├──► legacy_suggestion = convert_guidance_to_suggestion()  │
+         │           │                                               │
+         │           │  [Convert to legacy format]:                 │
+         │           │  primary_suggestion                          │
+         │           │  context                                     │
+         │           │  highlight_toolkit                           │
+         │           │  next_move                                   │
+         │           │                                               │
+         └──► socketio.emit('suggestion', legacy_suggestion)        │
+                                                     │               │
+                                                     └──────────────►│
+                                                                     │
+                                                              socket.on('suggestion')
+                                                                     │
+                                                              [Backward Compatible]
+
+
+4. FALLBACK ON ERROR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    claude_service.py
+    -----------------
+
+    get_coaching_guidance()
+         │
+         │ try:
+         │    └─► Claude API call
+         │
+         │ except Exception as e:
+         │    │
+         │    ├─► logger.error("Error getting coaching guidance")
+         │    │
+         │    └─► _get_fallback_guidance(detected_stage)
+         │              │
+         │              │  [Generic guidance by stage]:
+         │              │
+         │              │  opening:
+         │              │    - direction: "Build rapport..."
+         │              │    - questions: ["How are you?", ...]
+         │              │
+         │              │  discovery:
+         │              │    - direction: "Understand pain points..."
+         │              │    - questions: ["What's your process?", ...]
+         │              │
+         │              │  pitch:
+         │              │    - direction: "Present solution..."
+         │              │    - questions: ["Would it help if...?", ...]
+         │              │
+         │              │  objection:
+         │              │    - direction: "Acknowledge concern..."
+         │              │    - questions: ["What's your main concern?", ...]
+         │              │
+         │              │  close:
+         │              │    - direction: "Propose next step..."
+         │              │    - questions: ["Want to try it?", ...]
+         │              │
+         │              └──► return fallback_guidance
+         │                        │
+         │                        └─► [Safe default, no crash]
+
+
+5. FEATURE FLAG CHECK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    Frontend                    Backend                     Config
+    --------                    -------                     ------
+
+    GET /api/feature-flags
+         │
+         └────────────────────►│
+                                │ get_feature_flags()
+                                │      │
+                                │      ├─► Config.COACHING_MODE ◄───┐
+                                │      │                             │
+                                │      └─► return {              .env file
+                                │              "coaching_mode",  COACHING_MODE
+                                │              "guidance_version"     │
+                                │           }                         │
+         ┌────────────────────◄─┘                                    │
+         │                                                            │
+    {                                                                 │
+      "coaching_mode": "suggestions",                                │
+      "guidance_version": "v1"                                       │
+    }                                                                 │
+         │                                                            │
+    [Update UI based on mode] ◄───────────────────────────────────────┘
+
+
+================================================================================
+DATA STRUCTURES
+================================================================================
+
+COACHING GUIDANCE OBJECT:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ {                                                                           │
+│   "type": "coaching_guidance",                                              │
+│   "stage": {                                                                │
+│     "current": "discovery",              ◄─ Detected stage                 │
+│     "confidence": 85,                    ◄─ Detection confidence (0-100)   │
+│     "time_in_stage": 0                   ◄─ Seconds in this stage          │
+│   },                                                                        │
+│   "focus": {                                                                │
+│     "what": "Understand pain points",    ◄─ What to achieve NOW            │
+│     "why": "Need to qualify...",         ◄─ Strategic reasoning            │
+│     "urgency": "medium"                  ◄─ Priority level                 │
+│   },                                                                        │
+│   "objectives": {                                                           │
+│     "completed": [                       ◄─ What's been accomplished        │
+│       {"id": "rapport", "text": "Build rapport"}                           │
+│     ],                                                                      │
+│     "remaining": [                       ◄─ What's still needed             │
+│       {"id": "identify_pain", "text": "Identify pain", "priority": "high"} │
+│     ]                                                                       │
+│   },                                                                        │
+│   "guidance": {                                                             │
+│     "direction": "Full strategic text",  ◄─ What + Why combined            │
+│     "key_questions": [                   ◄─ Questions to ask                │
+│       "What's your current process?",                                       │
+│       "What challenges are you facing?",                                    │
+│       "How many calls per week?"                                            │
+│     ],                                                                      │
+│     "talking_points": [                  ◄─ Points to emphasize             │
+│       "Listen actively",                                                    │
+│       "Ask open-ended questions"                                            │
+│     ],                                                                      │
+│     "confidence": 85                     ◄─ Overall confidence              │
+│   },                                                                        │
+│   "metadata": {                                                             │
+│     "timestamp": 1701234567,             ◄─ Unix timestamp                 │
+│     "session_id": "call_xyz",            ◄─ Current call session           │
+│     "model_version": "coaching_v1"       ◄─ Model version                  │
+│   }                                                                         │
+│ }                                                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+CALL OBJECTIVES (per stage):
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ "discovery": [                                                              │
+│   {                                                                         │
+│     "id": "qualify_volume",              ◄─ Unique identifier              │
+│     "text": "Qualify call volume",       ◄─ Human-readable description     │
+│     "keywords": [                        ◄─ Detection keywords              │
+│       "how many calls",                                                     │
+│       "volume",                                                             │
+│       "receive",                                                            │
+│       "per day",                                                            │
+│       "per week"                                                            │
+│     ]                                                                       │
+│   },                                                                        │
+│   { ... more objectives ... }                                               │
+│ ]                                                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+
+================================================================================
+PERFORMANCE METRICS
+================================================================================
+
+Stage Detection:         < 1ms    (local algorithm)
+Objective Tracking:      < 1ms    (keyword matching)
+Claude API Call:         1-2s     (network + processing)
+Fallback Guidance:       < 1ms    (no API call)
+Total Response Time:     1-2s     (same as before)
+
+Memory Usage:            Minimal  (no caching yet)
+CPU Usage:               Low      (simple string matching)
+Network Calls:           1        (only to Claude API)
+
+================================================================================

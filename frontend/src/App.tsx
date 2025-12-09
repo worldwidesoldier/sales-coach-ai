@@ -6,6 +6,7 @@ import { StatusIndicator } from '@/components/StatusIndicator';
 import { CallControls } from '@/components/CallControls';
 import { TranscriptionPanel } from '@/components/TranscriptionPanel';
 import { PrimarySuggestionPanel } from '@/components/PrimarySuggestionPanel';
+import { CoachingPanel } from '@/components/CoachingPanel';
 import { BackupToolkit } from '@/components/BackupToolkit';
 import { Sun, Moon } from 'lucide-react';
 
@@ -17,6 +18,8 @@ function App() {
     sendAudio,
     onTranscription,
     onSuggestion,
+    onCoachingGuidance,
+    fetchFeatureFlags,
   } = useWebSocket();
 
   const {
@@ -33,8 +36,12 @@ function App() {
     isActive,
     transcriptions,
     suggestions,
+    coachingGuidance,
+    featureFlags,
     addTranscription,
     addSuggestion,
+    addCoachingGuidance,
+    setFeatureFlags,
     startCall: stateStartCall,
     endCall: stateEndCall,
     setAudioLevel,
@@ -56,21 +63,38 @@ function App() {
     localStorage.setItem('theme', newTheme);
   };
 
+  // Fetch feature flags on mount
+  useEffect(() => {
+    const loadFeatureFlags = async () => {
+      const flags = await fetchFeatureFlags();
+      setFeatureFlags(flags);
+      console.log('Feature flags loaded:', flags);
+    };
+    loadFeatureFlags();
+  }, [fetchFeatureFlags, setFeatureFlags]);
+
   // Listen for transcriptions and suggestions
   useEffect(() => {
-    const cleanupTranscript = onTranscription((transcript) => {
+    onTranscription((transcript) => {
       addTranscription(transcript);
     });
 
-    const cleanupSuggestion = onSuggestion((suggestion) => {
+    onSuggestion((suggestion) => {
       addSuggestion(suggestion);
     });
 
-    return () => {
-      cleanupTranscript();
-      cleanupSuggestion();
-    };
+    // Note: cleanup is handled internally by useWebSocket
   }, [onTranscription, onSuggestion, addTranscription, addSuggestion]);
+
+  // Listen for coaching guidance
+  useEffect(() => {
+    const cleanupGuidance = onCoachingGuidance((guidance) => {
+      console.log('Coaching guidance received:', guidance);
+      addCoachingGuidance(guidance);
+    });
+
+    return cleanupGuidance;
+  }, [onCoachingGuidance, addCoachingGuidance]);
 
   // Update audio level in state
   useEffect(() => {
@@ -180,32 +204,40 @@ function App() {
       <main className="flex-1 overflow-auto">
         <div className="h-full container mx-auto px-4 py-6">
           <div className="flex flex-col gap-4">
-            {/* Top Section: Transcription + Primary Suggestion - FIXED HEIGHT */}
-            <div className="flex gap-4 h-[60vh]">
-              {/* Left: Live Transcription - Fixed height with internal scroll */}
-              <div className="flex-1 min-w-0 h-full">
-                <TranscriptionPanel transcriptions={transcriptions} />
-              </div>
+            {/* Coaching or Suggestion Panel - Full width */}
+            <div className="h-[100vh]">
+              {featureFlags.coaching_mode === 'guidance' ? (
+                <CoachingPanel
+                  guidance={coachingGuidance}
+                  transcriptions={transcriptions}
+                />
+              ) : (
+                <div className="flex gap-4 h-[60vh]">
+                  <div className="flex-1">
+                    <TranscriptionPanel transcriptions={transcriptions} />
+                  </div>
+                  <div className="flex-1">
+                    <PrimarySuggestionPanel
+                      currentSuggestion={suggestions.length > 0 ? suggestions[suggestions.length - 1] : null}
+                      previousSuggestion={suggestions.length > 1 ? suggestions[suggestions.length - 2] : null}
+                    />
+                  </div>
+                </div>
+              )}
+            </div>
 
-              {/* Right: Current Suggestion - Fixed height, cards stack */}
-              <div className="flex-1 min-w-0 h-full">
-                <PrimarySuggestionPanel
-                  currentSuggestion={suggestions.length > 0 ? suggestions[suggestions.length - 1] : null}
-                  previousSuggestion={suggestions.length > 1 ? suggestions[suggestions.length - 2] : null}
+            {/* Bottom Section: Backup Toolkit */}
+            {featureFlags.coaching_mode !== 'guidance' && (
+              <div className="mt-4">
+                <BackupToolkit
+                  highlightedCategories={
+                    suggestions.length > 0 && suggestions[suggestions.length - 1]?.highlight_toolkit
+                      ? suggestions[suggestions.length - 1].highlight_toolkit
+                      : []
+                  }
                 />
               </div>
-            </div>
-
-            {/* Bottom Section: Backup Toolkit - Can scroll to see */}
-            <div className="mt-4">
-              <BackupToolkit
-                highlightedCategories={
-                  suggestions.length > 0 && suggestions[suggestions.length - 1]?.highlight_toolkit
-                    ? suggestions[suggestions.length - 1].highlight_toolkit
-                    : []
-                }
-              />
-            </div>
+            )}
           </div>
         </div>
       </main>

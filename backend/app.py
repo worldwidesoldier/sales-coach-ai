@@ -22,7 +22,7 @@ from services.claude_service import ClaudeService
 from services.conversation_manager import ConversationManager
 from utils.logger import setup_logger
 from utils.validators import validate_audio_data, validate_session_id, sanitize_filename
-from config import BACKUP_TOOLKIT
+from config import BACKUP_TOOLKIT, Config
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -275,28 +275,69 @@ def handle_transcript(session_id, transcript_data):
 
 
 def get_ai_suggestion(session_id, client_id):
-    """Get AI suggestion from Claude (async)"""
+    """Get AI suggestion/guidance from Claude (async)"""
     try:
         # Get conversation context
         context = conversation_manager.get_context(session_id)
 
-        # Get suggestion from Claude
-        suggestion = claude_service.get_suggestion(context)
+        # Get coaching mode from config
+        coaching_mode = Config.COACHING_MODE
 
-        if suggestion:
-            # Find session and store suggestion
+        if coaching_mode == 'guidance':
+            # NEW: Get coaching guidance
+            guidance = claude_service.get_coaching_guidance(context)
+            guidance['metadata']['session_id'] = session_id
+
+            # Emit new coaching_guidance event
+            socketio.emit('coaching_guidance', guidance, room=client_id)
+            logger.info(f"✅ Sent coaching guidance to client: {client_id}")
+
+            # ALSO emit legacy suggestion for backward compatibility
+            legacy_suggestion = convert_guidance_to_suggestion(guidance)
             if client_id in active_sessions:
-                active_sessions[client_id]['suggestions'].append(suggestion)
+                active_sessions[client_id]['suggestions'].append(legacy_suggestion)
+            socketio.emit('suggestion', legacy_suggestion, room=client_id)
+            logger.info(f"✅ Sent legacy suggestion for backward compat: {client_id}")
 
-            # Send to client
-            socketio.emit('suggestion', suggestion, room=client_id)
-            logger.info(f"✅ Sent AI suggestion to client: {client_id}")
+        else:
+            # OLD: Get traditional suggestion
+            suggestion = claude_service.get_suggestion(context)
+
+            if suggestion:
+                # Find session and store suggestion
+                if client_id in active_sessions:
+                    active_sessions[client_id]['suggestions'].append(suggestion)
+
+                # Send to client
+                socketio.emit('suggestion', suggestion, room=client_id)
+                logger.info(f"✅ Sent AI suggestion to client: {client_id}")
 
     except Exception as e:
-        logger.error(f"Error getting AI suggestion: {e}", exc_info=True)
+        logger.error(f"Error getting AI suggestion/guidance: {e}", exc_info=True)
         socketio.emit('error', {
-            'message': 'Failed to get AI suggestion'
+            'message': 'Failed to get AI coaching'
         }, room=client_id)
+
+
+def convert_guidance_to_suggestion(guidance):
+    """Convert coaching guidance to legacy suggestion format for backward compat"""
+    return {
+        "primary_suggestion": {
+            "text": guidance['guidance']['direction'],
+            "reasoning": guidance['focus']['why'],
+            "confidence": guidance['guidance']['confidence'],
+            "urgency": guidance['focus']['urgency']
+        },
+        "context": {
+            "call_stage": guidance['stage']['current'],
+            "objection_detected": guidance['stage']['current'] == 'objection',
+            "objection_type": "none",
+            "buying_signal": guidance['stage']['current'] == 'close',
+            "sentiment": "neutral"
+        },
+        "highlight_toolkit": [],
+        "next_move": guidance['guidance']['direction']
+    }
 
 
 # ============================================================================
@@ -408,6 +449,15 @@ def get_toolkit():
     except Exception as e:
         logger.error(f"Error getting toolkit: {e}", exc_info=True)
         return jsonify({'error': str(e)}), 500
+
+
+@app.route('/api/feature-flags', methods=['GET'])
+def get_feature_flags():
+    """Return current feature flags"""
+    return jsonify({
+        'coaching_mode': Config.COACHING_MODE,
+        'guidance_version': 'v1'
+    })
 
 
 @app.route('/api/calls/<call_id>/analyze', methods=['POST'])

@@ -120,6 +120,13 @@ class Config:
         "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
     )
 
+    # ==================================================================
+    # FEATURE FLAGS
+    # ==================================================================
+
+    # Coaching mode: 'suggestions' (legacy) or 'guidance' (new coaching system)
+    COACHING_MODE: str = os.getenv('COACHING_MODE', 'suggestions')
+
     @classmethod
     def validate(cls) -> None:
         """
@@ -216,6 +223,110 @@ class Config:
 
 # ==================================================================
 # CLAUDE SYSTEM PROMPT
+# ==================================================================
+
+# ==================================================================
+# COACHING SYSTEM PROMPT (NEW - Strategic Guidance)
+# ==================================================================
+
+COACHING_SYSTEM_PROMPT = """You are a real-time sales coach providing strategic guidance (NOT exact scripts).
+
+YOUR ROLE:
+- Confirm the current call stage (opening/discovery/pitch/objection/close)
+- Identify which objectives are complete and which remain
+- Provide strategic direction for what to focus on NOW
+- Suggest 3-5 key questions with multiple alternative phrasings
+- Give talking points for emphasis
+
+IMPORTANT RULES:
+- DO NOT provide exact sentences or scripts to read
+- DO provide strategic questions and direction with multiple options
+- Provide 3-4 alternative ways to ask each key question
+- Give brief context on when to use each question
+- Let the salesperson choose their own words
+- Focus on WHAT to accomplish, not HOW to say it
+- Be concise - they're on a live call
+
+RESPOND IN THIS EXACT JSON FORMAT:
+{
+  "stage_validation": {
+    "current_stage": "opening|discovery|pitch|objection|close",
+    "confidence": 0-100,
+    "reasoning": "why this stage"
+  },
+  "focus": {
+    "what": "what to achieve now",
+    "why": "strategic reasoning",
+    "urgency": "low|medium|high|critical"
+  },
+  "key_questions": [
+    {
+      "primary": "Main question - most effective approach",
+      "alternatives": [
+        "Alternative phrasing 1",
+        "Alternative phrasing 2",
+        "Alternative phrasing 3"
+      ],
+      "context": "When to use this question and what it accomplishes"
+    }
+  ],
+  "talking_points": [
+    "point 1",
+    "point 2"
+  ],
+  "objectives": {
+    "completed": ["objective_id", ...],
+    "remaining": ["objective_id", ...]
+  }
+}
+
+EXAMPLES OF GOOD KEY QUESTIONS WITH ALTERNATIVES:
+{
+  "primary": "What challenges are you facing right now?",
+  "alternatives": [
+    "What obstacles are slowing you down?",
+    "Where are you hitting roadblocks?",
+    "What would make your life easier?"
+  ],
+  "context": "Use for uncovering pain points and needs"
+}
+"""
+
+
+# ==================================================================
+# CALL OBJECTIVES BY STAGE
+# ==================================================================
+
+CALL_OBJECTIVES = {
+    "opening": [
+        {"id": "rapport", "text": "Build rapport", "keywords": ["hello", "hi", "how are you", "thanks", "appreciate"]},
+        {"id": "establish_reason", "text": "Establish reason for call", "keywords": ["calling because", "reaching out", "quick question", "wanted to talk"]}
+    ],
+    "discovery": [
+        {"id": "qualify_volume", "text": "Qualify call volume", "keywords": ["how many calls", "volume", "receive", "per day", "per week"]},
+        {"id": "identify_pain", "text": "Identify pain point", "keywords": ["problem", "challenge", "issue", "missing", "frustrated", "difficult"]},
+        {"id": "current_solution", "text": "Understand current solution", "keywords": ["currently using", "right now", "today", "process", "handling"]}
+    ],
+    "pitch": [
+        {"id": "value_prop", "text": "Explain value proposition", "keywords": ["we offer", "solution", "helps you", "can do", "feature"]},
+        {"id": "differentiate", "text": "Differentiate from alternatives", "keywords": ["unlike", "better than", "advantage", "different", "unique"]},
+        {"id": "address_budget", "text": "Address budget consideration", "keywords": ["cost", "price", "roi", "return", "investment", "save"]}
+    ],
+    "objection": [
+        {"id": "acknowledge", "text": "Acknowledge concern", "keywords": ["understand", "i hear you", "makes sense", "fair", "get it"]},
+        {"id": "reframe", "text": "Reframe perspective", "keywords": ["however", "another way", "consider", "what if", "think about"]},
+        {"id": "reengage", "text": "Re-engage conversation", "keywords": ["question", "curious", "wondering", "tell me"]}
+    ],
+    "close": [
+        {"id": "propose_next", "text": "Propose next step", "keywords": ["trial", "demo", "meeting", "start", "setup", "call"]},
+        {"id": "get_commitment", "text": "Get commitment", "keywords": ["yes", "agreed", "sounds good", "interested", "let's do it"]},
+        {"id": "schedule", "text": "Schedule follow-up", "keywords": ["when", "calendar", "date", "time", "schedule"]}
+    ]
+}
+
+
+# ==================================================================
+# ORIGINAL SYSTEM PROMPT (Legacy)
 # ==================================================================
 
 SYSTEM_PROMPT = """You are a real-time sales coach assistant helping a salesperson during live cold calls selling AI phone assistant services.
